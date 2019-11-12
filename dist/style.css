@@ -1,6 +1,22 @@
 *{
-    text-align: center;
+    /* text-align: center; */
 }
 #saveMenuButton{
 margin-top: 400px;
+}
+
+.Food{
+    width: 500px;
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.foodIMG{
+    position:absolute;
+    left: 315px;
+    top: 100px;
+    max-width: 120px;
+    max-height: 120px;
 }
