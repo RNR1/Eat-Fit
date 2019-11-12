@@ -12,7 +12,7 @@ class Menu {
     removeFromMenu(food) {
         let foodToDelete = this.menuData.findIndex(f => f.name === food)
         this.menuData.splice(foodToDelete,1)
-
+        
     }
 
     save() {
