@@ -81,10 +81,6 @@ router.post('/user/menu', async (req, res) => {
 	res.send(user)
 })
 
-router.put('/food/', async (req, res) => {
-	;```Add selected food item to current menu, to be executed by Menu.addToMenu()```
-})
-
 router.put('/consume/', async (req, res) => {
 	// Mark selected food item as consumed according to the current daily menu.
 	let userId = req.body.userId
@@ -112,6 +108,13 @@ router.delete('/menu/', async (req, res) => {
 	await user.save()
 	res.send(user)
 
+})
+
+router.post('/login', async (req, res) => {
+	let userId = req.body.userId
+
+	let user = await User.findById(userId)
+	res.send(user)
 })
 
 router.post('/register', async (req, res) => {
