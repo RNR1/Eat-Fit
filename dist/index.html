@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <input type="text"><button>SEARCH</button>
+        <input id="searchFood" type="text"><button id="searchButton">SEARCH</button>
     </div>
     <select>
         <option value="breakfast">Breakfast</option>
@@ -20,6 +20,9 @@
       <div id="food-container"></div>
       <div id="AppendMenuOverViewOrCartResultsHere_andChangeThisName"></div>
       <button id="saveMenuButton">Save Menu</button>
+
+  </div>
+
 
 
 
@@ -33,6 +36,10 @@
             <div class="foodFat">{{fat}}</div>
             <div class="foodSugras">{{sugars}}</div>
             <img class="foodIMG" src={{img}} >
+            <div class="foodbuttons">
+                <button class="addToMenuButton">Add To Menu</button>
+                <button class="removeFromMenuButton">Remove From Menu</button>
+            </div>
         </div>
         {{/each}}
 
@@ -43,6 +50,7 @@
 
     <script src="./models/Menu.js"></script>
     <script src="./models/User.js"></script>
+    <script src="./Renderer.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
