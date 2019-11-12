@@ -14,5 +14,5 @@ const userSchema = new Schema({
     menu:[{type: Schema.Types.ObjectId, ref: 'Menu'}]
 })
 
-const User = mongoose.model("food", userSchema)
+const User = mongoose.model("User", userSchema)
 module.exports = User
