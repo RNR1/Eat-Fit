@@ -8,11 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div>
+        <input type="text"><button>SEARCH</button>
+    </div>
+    <select>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="snack">Snack</option>
+        <option value="dinner">Dinner</option>
+      </select>
+      <div id="food-container"></div>
+      <div id="AppendMenuOverViewOrCartResultsHere_andChangeThisName"></div>
+      <button id="saveMenuButton">Save Menu</button>
 
 
 
+      <script id="food-template" type="text/x-handlebars-template">
+        {{#each food}}
+        <div class="player">
+            <div class="foodName">{{name}}</div>
+            <div class="foodServingUnit">{{servingUnit}}</div>
+            <div class="foodCal">{{cal}}</div>
+            <div class="foodprot">{{prot}}</div>
+            <div class="foodFat">{{fat}}</div>
+            <div class="foodSugras">{{sugars}}</div>
+            <img class="foodIMG" src={{img}} >
+        </div>
+        {{/each}}
 
+    </script>
     
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
