@@ -4,7 +4,7 @@ class Renderer {
         const template = Handlebars.compile(source);
         let newHTML = template(foods);
         $("#food-container").empty().append(newHTML);
-        if (cal)
+        if (cal || cal === 0)
             $("#totalCalMessage").empty().append(`The Total Calories you have in your menu is: ${cal}`);
 
     }

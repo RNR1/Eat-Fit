@@ -2,7 +2,7 @@ class Menu {
     constructor() {
         this.menuData = []
         this.totalCal = 0
-        
+
     }
 
     addToMenu(food) {
@@ -11,11 +11,10 @@ class Menu {
     }
 
     removeFromMenu(food) {
-        let foodToDelete = this.menuData.findIndex(f => f.name === food)
-        console.log(foodToDelete)
-        this.menuData.splice(foodToDelete,1)
-        // this.totalCal -= food.cal
-        
+        let requiredFoodIndex = this.menuData.findIndex(f => f.name === food)
+        this.totalCal -= this.menuData[requiredFoodIndex].cal
+        this.menuData.splice(requiredFoodIndex, 1)
+
     }
 
     save() {
