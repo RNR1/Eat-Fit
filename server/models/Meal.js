@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
-const foodSchema = require('./Food')
+const foodSchema = require('./Food').foodSchema
 const Schema = mongoose.Schema
 
 const mealSchema = new Schema({
-    foods: [ foodSchema]
+    foods: [foodSchema]
 })
 
-const Meal = mongoose.model("Meal", mealSchema)
-module.exports = Meal
+const Meal = mongoose.model('Meal', mealSchema)
+module.exports = {Meal, mealSchema}

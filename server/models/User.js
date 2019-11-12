@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const menuSchema = require('./Meal')
+const menuSchema = require('./Menu').MenuSchema
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
@@ -12,8 +12,8 @@ const userSchema = new Schema({
     age:{ type: Number, required: true },
     gender:{ type: String, required: true },
     BMR:{ type: Number, required: true },
-    menu:[menuSchema]
+    menu: [menuSchema]
 })
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model('User', userSchema)
 module.exports = User
