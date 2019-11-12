@@ -102,7 +102,16 @@ router.put('/consume/', async (req, res) => {
 })
 
 router.delete('/menu/', async (req, res) => {
-	;```Delete user’s current menu from DB, to be executed by User.removeMenu()```
+	// Delete user’s current menu from DB, to be executed by User.removeMenu()
+	let userId = req.body.userId
+	let selectedDay = req.body.selectedDay
+
+	let user = await User.findById(userId)
+	let menu = user.menu.findIndex(m => m.dayInWeek === selectedDay)
+	user.menu.splice(menu, 1)
+	await user.save()
+	res.send(user)
+
 })
 
 router.post('/register', async (req, res) => {
