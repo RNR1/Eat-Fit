@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const menuSchema = require('./Meal')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
@@ -11,7 +12,7 @@ const userSchema = new Schema({
     age:{ type: Number, required: true },
     gender:{ type: String, required: true },
     BMR:{ type: Number, required: true },
-    menu:[{type: Schema.Types.ObjectId, ref: 'Menu'}]
+    menu:[menuSchema]
 })
 
 const User = mongoose.model("User", userSchema)
