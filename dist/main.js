@@ -3,7 +3,7 @@ let user = new User("Yaniv", 2500)
 const renderer = new Renderer()
 
 $('#searchButton').on('click', async function () {
-    let input = $('searchFood').val()
+    let input = $('#searchFood').val()
     await user.getFood(input)
     renderer.renderFood(user.foodData)
 })
