@@ -3,7 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const requestPromise = require('request-promise')
 const moment = require('moment')
-const User = require('../models/User').User
+const User = require('../models/User')
 const Menu = require('../models/Menu').Menu
 const Meal = require('../models/Meal').Meal
 const Food = require('../models/Food').Food
@@ -58,7 +58,8 @@ router.get('/menu', async (req, res) => {
 	// Get daily menu from DB, to be fetched on pageLoad()
 	let today = moment().format('dddd')
 
-	res.send(today)
+	let dailyMenu = await User.find({menu: {$elemMatch: {dayInWeek: today} }})
+	res.send(dailyMenu)
 })
 
 router.post('/menu', async (req, res) => {
@@ -71,10 +72,15 @@ router.post('/menu', async (req, res) => {
 	res.send(menu)
 })
 
-router.post('user/menu', async (req, res) => {
-	;```Save user’s current daily menu to DB, to be executed by User.createMenu().
-    Body: an Object similar to menu schema.
-    ```
+router.post('/user/menu', async (req, res) => {
+	// Save user’s current daily menu to DB, to be executed by User.createMenu().
+	// Body: an Object contains userId and menuId .
+
+	let user = await User.findById(req.body.userId)
+	let menu = await Menu.findById(req.body.menuId)
+	user.menu.push(menu)
+	await user.save()
+	res.send(user)
 })
 
 router.put('/food/', async (req, res) => {
@@ -88,6 +94,14 @@ router.put('/consume/', async (req, res) => {
 
 router.delete('/menu/', async (req, res) => {
 	;```Delete user’s current menu from DB, to be executed by User.removeMenu()```
+})
+
+router.post('/register', async (req, res) => {
+	let user = req.body
+	user = new User({...req.body})
+
+	await user.save()
+	res.send(user)
 })
 
 module.exports = router
