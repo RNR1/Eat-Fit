@@ -16,6 +16,6 @@ class Menu {
     }
 
     save() {
-        $.post('user/menu', this.menuData)
+        $.post('/menu', this.menuData)
     }
 }
