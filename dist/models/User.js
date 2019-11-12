@@ -22,8 +22,8 @@ class User {
         })
     }
 
-    async getDailyMenu(userId) {
-        this.dailyMenu = await $.get(`/menu/${userId}`)
+    async getDailyMenu() {
+        this.dailyMenu = await $.get(`/menu/${this.userId}`)
     }
 
     async createMenu() {
