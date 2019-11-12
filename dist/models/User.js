@@ -12,12 +12,12 @@ class User {
 
     async consumeFood(foodId,meal) {
         await $.ajax({
-            url: `/city/${cityName}`,
-            type: 'DELETE',
+            url: `/consume`,
+            type: 'PUT',
             data: {foodId: foodId,
                     meal: meal},
             success: function(result) {
-                console.log("Food Updated")
+                console.log("Food Consumed")
             }
         })
     }
