@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
+const foodSchema = require('./Food')
 const Schema = mongoose.Schema
 
 const mealSchema = new Schema({
-    foods: [{type: Schema.Types.ObjectId, ref: 'Food'}]
+    foods: [ foodSchema]
 })
 
 const Meal = mongoose.model("Meal", mealSchema)
