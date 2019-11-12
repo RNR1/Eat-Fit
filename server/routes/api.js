@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const requestPromise = require('request-promise')
-const User = require('../models/User')
-const Menu = require('../models/Menu')
-const Meal = require('../models/Meal')
-const Food = require('../models/Food')
+const moment = require('moment')
+const User = require('../models/User').User
+const Menu = require('../models/Menu').Menu
+const Meal = require('../models/Meal').Meal
+const Food = require('../models/Food').Food
 const apiKey = '2aa1e21b20e91d5ab15239f17a36611b'
 const apiId = 'd1a21d2f'
 
@@ -39,7 +40,7 @@ router.get('/food/:foodName', async (req, res) => {
 
 	items = await requestPromise(getNutrients)
 	items = items.foods[0]
-	let food = {
+	let food = new Food({
 		name: items.food_name,
 		servingUnit: `${items.serving_qty} ${items.serving_unit}`,
 		cal: items.nf_calories,
@@ -48,19 +49,26 @@ router.get('/food/:foodName', async (req, res) => {
 		sugars: items.nf_sugars,
 		img: items.photo.thumb,
 		consumed: false
-	}
+	})
 
 	res.send(food)
 })
 
 router.get('/menu', async (req, res) => {
-	;```Get daily menu from DB, to be fetched on pageLoad()```
+	// Get daily menu from DB, to be fetched on pageLoad()
+	let today = moment().format('dddd')
+
+	res.send(today)
 })
 
 router.post('/menu', async (req, res) => {
-	;```Save current daily menu to DB, to be executed by Menu.save().
-    Body: an Object similar to menu schema.
-    ```
+	// Save current daily menu to DB, to be executed by Menu.save().
+    // Body: an Object similar to menu schema.
+	let menu = req.body
+	menu = new Menu({...req.body})
+
+	await menu.save()
+	res.send(menu)
 })
 
 router.post('user/menu', async (req, res) => {
