@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const mealSchema = require('./Meal')
+const mealSchema = require('./Meal').mealSchema
 const Schema = mongoose.Schema
 
 const MenuSchema = new Schema({
@@ -16,5 +16,5 @@ const MenuSchema = new Schema({
     }
 })
 
-const Menu = mongoose.model("Menu", MenuSchema)
-module.exports = Menu
+const Menu = mongoose.model('Menu', MenuSchema)
+module.exports = {Menu, MenuSchema}

@@ -12,5 +12,5 @@ const foodSchema = new Schema({
     consumed: {type: Boolean, required: true}
 })
 
-const Food = mongoose.model("Food", foodSchema)
-module.exports = Food
+const Food = mongoose.model('Food', foodSchema)
+module.exports = {Food, foodSchema}
