@@ -86,8 +86,19 @@ router.put('/food/', async (req, res) => {
 })
 
 router.put('/consume/', async (req, res) => {
-	;```Mark selected food item as consumed according to the current daily menu.
-    ```
+	// Mark selected food item as consumed according to the current daily menu.
+	let userId = req.body.userId
+	let meal = req.body.meal
+	let foodId = req.body.foodId
+	let today = moment().format('dddd')
+
+	let user = await User.findById(userId)
+	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
+	let food = dailyMenu[meal].foods.find(f => f.id === foodId)
+	food.consumed = !food.consumed
+	await user.save()
+
+	res.send(food)
 })
 
 router.delete('/menu/', async (req, res) => {
