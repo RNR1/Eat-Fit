@@ -10,7 +10,7 @@ $('#searchButton').on('click', async function () {
 
 
 $("#food-container").on("click", ".addToMenuButton", function () {
-    let foodName = $(this).closest(".foodName").text()
+    let foodName = $(this).closest(".Food").find(".foodName").text()
     if (user.foodData.name === foodName) {
         menu.addToMenu(user.foodData)
         //Show message to user that it`s added
@@ -25,7 +25,8 @@ $("#food-container").on("click", ".addToMenuButton", function () {
 
 
 $("#food-container").on("click", ".removeFromMenuButton", function () {
-    menu.removeFromMenu($(this).closest(".foodName").text())
+    let food = $(this).closest(".Food").find(".foodName").text()
+    menu.removeFromMenu(food)
     //Show message to user that it`s removed
 
 
