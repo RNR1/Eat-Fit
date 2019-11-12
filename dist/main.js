@@ -1,6 +1,6 @@
 let menu = new Menu()
 let user = new User("Yaniv", 2500)
-const renderer = new renderer()
+const renderer = new Renderer()
 
 $('#searchButton').on('click', async function () {
     let input = $('searchFood').val()
