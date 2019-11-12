@@ -8,7 +8,7 @@ class Renderer {
     }
 
     renderMenu(menu) {
-        const source = $('#Menu-template').html();
+        const source = $('#menu-template').html();
         const template = Handlebars.compile(source);
         let newHTML = template( {menu} );
         $(".menu-container").empty().append(newHTML);
