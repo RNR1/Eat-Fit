@@ -3,7 +3,7 @@ class Renderer {
         const source = $('#food-template').html();
         const template = Handlebars.compile(source);
         let newHTML = template( foods );
-        $(".food-container").empty().append(newHTML);
+        $("#food-container").empty().append(newHTML);
     
     }
 
@@ -11,7 +11,7 @@ class Renderer {
         const source = $('#menu-template').html();
         const template = Handlebars.compile(source);
         let newHTML = template( {menu} );
-        $(".menu-container").empty().append(newHTML);
+        $("#menu-container").empty().append(newHTML);
     
     }
 }
