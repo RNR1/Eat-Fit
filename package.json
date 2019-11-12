@@ -1,0 +1,22 @@
+{
+  "name": "eat-fit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "express": "^4.17.1",
+    "handlebars": "^4.5.1",
+    "jquery": "^3.4.1",
+    "mongoose": "^5.7.10",
+    "morgan": "^1.9.1",
+    "request-promise": "^4.2.5"
+  }
+}
