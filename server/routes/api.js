@@ -7,8 +7,11 @@ const User = require('../models/User')
 const Menu = require('../models/Menu').Menu
 const Meal = require('../models/Meal').Meal
 const Food = require('../models/Food').Food
-const apiKey = '2aa1e21b20e91d5ab15239f17a36611b'
-const apiId = 'd1a21d2f'
+const headers = {
+	'x-app-key': '2aa1e21b20e91d5ab15239f17a36611b',
+	'x-app-id': 'd1a21d2f'
+}
+
 
 router.get('/food/:foodName', async (req, res) => {
 	// Request food items from External API
@@ -16,11 +19,8 @@ router.get('/food/:foodName', async (req, res) => {
 	let foodName = req.params.foodName
 	const getItems = {
 		uri: `https://trackapi.nutritionix.com/v2/search/instant?query=${foodName}`,
-		headers: {
-			'x-app-key': apiKey,
-			'x-app-id': apiId
-		},
-		json: true // Automatically parses the JSON string in the response
+		headers: headers,
+		json: true
 	}
 
 	let items = await requestPromise(getItems)
@@ -28,14 +28,11 @@ router.get('/food/:foodName', async (req, res) => {
 	const getNutrients = {
 		method: 'POST',
 		uri: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
-		headers: {
-			'x-app-key': apiKey,
-			'x-app-id': apiId
-		},
+		headers: headers,
 		body: {
 			query: items.common[0]['food_name']
 		},
-		json: true // Automatically parses the JSON string in the response
+		json: true
 	}
 
 	items = await requestPromise(getNutrients)
@@ -54,11 +51,12 @@ router.get('/food/:foodName', async (req, res) => {
 	res.send(food)
 })
 
-router.get('/menu', async (req, res) => {
+router.get('/menu/:userId', async (req, res) => {
 	// Get daily menu from DB, to be fetched on pageLoad()
 	let today = moment().format('dddd')
-
-	let dailyMenu = await User.find({menu: {$elemMatch: {dayInWeek: today} }})
+	let userId = req.params.userId
+	let user = await User.findById(userId)
+	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
 	res.send(dailyMenu)
 })
 
