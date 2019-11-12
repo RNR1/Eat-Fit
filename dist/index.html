@@ -17,17 +17,17 @@
         <option value="snack">Snack</option>
         <option value="dinner">Dinner</option>
       </select>
-      <div id="food-container"></div>
-      <div id="AppendMenuOverViewOrCartResultsHere_andChangeThisName"></div>
-      <button id="saveMenuButton">Save Menu</button>
+      
+    </div>
 
-  </div>
-
+    <div id="food-container"></div>
+    <div id="AppendMenuOverViewOrCartResultsHere_andChangeThisName"></div>
+    <button id="saveMenuButton">Save Menu</button>
 
 
 
       <script id="food-template" type="text/x-handlebars-template">
-        {{#each food}}
+
         <div class="Food">
             <div class="foodName">{{name}}</div>
             <div class="foodServingUnit">{{servingUnit}}</div>
@@ -41,7 +41,7 @@
                 <button class="removeFromMenuButton">Remove From Menu</button>
             </div>
         </div>
-        {{/each}}
+
 
     </script>
     
