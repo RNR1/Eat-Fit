@@ -11,10 +11,13 @@ $('#searchButton').on('click', async function () {
 
 $("#food-container").on("click", ".addToMenuButton", function () {
     let foodName = $(this).closest(".Food").find(".foodName").text()
+    let meal = $("#meals").val()
     if (user.foodData.name === foodName) {
         menu.addToMenu(user.foodData)
         renderer.renderFood(user.foodData, menu.totalCal)
-        renderer.renderMenu(menu.Breakfast)
+        
+        renderer.renderMenu(menu[meal], meal)
+        console.log(meal)
         //Show message to user that it`s added
     } else {
         console.log("Problem, Big One.")
