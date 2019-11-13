@@ -19,4 +19,9 @@ class Renderer {
         let newHTML = template(nutrientsObj);
         $("#totals").empty().append(newHTML);
     }
+
+    renderUserDetails() {
+        $("#userName").append(`<h2> Hi ${user.name} </h2>`)
+        $("#userBMR").append(`<h3> Your BMR is ${user.bmr} </h3`)
+    }
 }
