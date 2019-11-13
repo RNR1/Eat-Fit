@@ -35,16 +35,16 @@ class User {
 		this.dailyMenu = await $.get(`/menu/${this.userId}`)
 	}
 
-	async createMenu() {
-		if (this.dailyMenu.length === 0) {
-			console.log("The menu is empty")
-			//show message to user.
-		} else {
-			await $.post(`/user/menu`, {
+	async createMenu(menuId) {
+		// if (this.dailyMenu.length === 0) {
+		// 	console.log("The menu is empty")
+		// 	//show message to user.
+		// } else {
+		await $.post(`/user/menu`, {
 				userId: this.id,
-				menuId: this.dailyMenu.id
+				menuId: menuId
 			})
-		}
+		// }
 	}
 
 	async removeMenu() {

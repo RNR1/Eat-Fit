@@ -1,7 +1,7 @@
 HandlebarsIntl.registerWith(Handlebars)
 
 let menu = new Menu()
-let user = new User(1,"Yaniv", 1700)
+let user = new User("5dcae6138959823f9819caa3","John Doe", 1800)
 const renderer = new Renderer()
 renderer.renderUserDetails()
 
@@ -37,6 +37,11 @@ $("#food-container").on("click", ".addToMenuButton", function() {
         console.log("Notice , you have reached your daily BMR")
     }
 })
+
+const save = async () => {
+	menu = await menu.save()
+	await user.createMenu(menu._id)
+}
 
 const remove = (foodId, meal) => {
 	menu.removeFromMenu(foodId, meal)
