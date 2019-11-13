@@ -31,18 +31,51 @@
 
 
 
+    <script id="dailyMenu-template" type="text/x-handlebars-template">
+        <div class="dailyMenu row mx-auto">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <h2 class="greenColor">Breakfast:</h1>
+                        {{#each breakfast}}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                        {{/each}}
+                    <h2 class="greenColor">Lunch:</h1>
+                        {{#each lunch}}
+                        
+                        {{/each}}
+                    <h2 class="greenColor">Snack:</h1>
+                        {{#each snack}}
+                        
+                        {{/each}}
+                    <h2 class="greenColor">Dinner:</h1>
+                        {{#each dinner}}
+
+                        {{/each}}
+                </div>
+
+
+
+
+                </div>
+                <div class="col-2">
+
+                </div>
+            </div>
+    </script>
+
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
     <script src="handlebars-intl/dist/handlebars-intl.min.js"></script>
 
