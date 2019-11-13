@@ -14,81 +14,86 @@
 
 <body>
     <div id="header"><img id="logo" src="./img/logo.png"></div>
-    <div class="welcomeUser">
-        <div id="userName" class="greenColor"></div>
-        <div id="userBMR"></div>
-    </div>
+<div id="container"></div>
 
 
-    <div class="row mx-auto" style="width: 1200px;">
-        <div class="border border-dark rounded text-center col-5 p-3 mx-auto">
-            <h1 class="greenColor mb-04">Search Food</h1>
-            <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
-            <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
-            <div class="input-group mb-3">
-                <input id="searchFood" type="text" class="form-control" placeholder="What you want to eat ?"
-                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button id="searchButton" class="btn btn-outline-secondary" type="button"
-                        id="button-addon2" onclick="search()">Search</button>
+    <script id="addNewMenu-template" type="text/x-handlebars-template">
+
+        <div class="welcomeUser">
+                <div id="userName" class="greenColor"></div>
+                <div id="userBMR"></div>
+            </div>
+        
+            <div class="row mx-auto" style="width: 1200px;">
+                <div class="border border-dark rounded text-center col-5 p-3 mx-auto">
+                    <h1 class="greenColor mb-04">Search Food</h1>
+                    <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
+                    <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
+                    <div class="input-group mb-3">
+                        <input id="searchFood" type="text" class="form-control" placeholder="What you want to eat ?"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button id="searchButton" class="btn btn-outline-secondary" type="button"
+                                id="button-addon2" onclick="search()">Search</button>
+                        </div>
+                    </div>
+        
+        
+        
+                    <select id="meals">
+                        <option class="ml" selected disabled>Select Meal</option>
+                        <option class="ml" value="Breakfast">Breakfast</option>
+                        <option class="ml" value="Lunch">Lunch</option>
+                        <option class="ml" value="Snack">Snack</option>
+                        <option class="ml" value="Dinner">Dinner</option>
+                    </select>
+        
+                    <div id="food-container"></div>
+        
+                    <div class="row mx-auto">
+                        <div class="col-10 mx-auto">
+                        </div>
+                    </div>
                 </div>
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <div class="Menu">
+                        <h1 class="greenColor">Your Daily Menu</h1>
+                        <div class="foodDeletedAlert alert alert-success" role="alert">Food deleted from menu.</div>
+                        <div class="foods">
+                            <h4>Breakfast:</h4>
+                            <div class="Breakfast"></div>
+                            <h4>Lunch:</h4>
+                            <div class="Lunch"></div>
+                            <h4>Snack:</h4>
+                            <div class="Snack"></div>
+                            <h4>Dinner:</h4>
+                            <div class="Dinner"></div>
+                        </div>
+                    </div>
+        
+                    <div id="totals"></div>
+        
+                    <select id="days">
+                        <option selected disabled>Select Day</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednsday">Wednsday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+        
+                    <div class="menuSavedAlert alert alert-success" role="alert">Menu Saved</div>
+                    <div class="mustChooseDayAlert alert alert-warning" role="alert">You must choose day in week.</div>
+                    <button id="saveMenuButton" class="btn btn-outline-success" onclick="save()">Save Menu</button>
+                </div>
+        
             </div>
 
 
-
-            <select id="meals">
-                <option class="ml" selected disabled>Select Meal</option>
-                <option class="ml" value="Breakfast">Breakfast</option>
-                <option class="ml" value="Lunch">Lunch</option>
-                <option class="ml" value="Snack">Snack</option>
-                <option class="ml" value="Dinner">Dinner</option>
-            </select>
-
-            <div id="food-container"></div>
-
-            <div class="row mx-auto">
-                <div class="col-10 mx-auto">
-                </div>
-            </div>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <div class="Menu">
-                <h1 class="greenColor">Your Daily Menu</h1>
-                <div class="foodDeletedAlert alert alert-success" role="alert">Food deleted from menu.</div>
-                <div class="foods">
-                    <h4>Breakfast:</h4>
-                    <div class="Breakfast"></div>
-                    <h4>Lunch:</h4>
-                    <div class="Lunch"></div>
-                    <h4>Snack:</h4>
-                    <div class="Snack"></div>
-                    <h4>Dinner:</h4>
-                    <div class="Dinner"></div>
-                </div>
-            </div>
-
-            <div id="totals"></div>
-
-            <select id="days">
-                <option selected disabled>Select Day</option>
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednsday">Wednsday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-            </select>
-
-            <div class="menuSavedAlert alert alert-success" role="alert">Menu Saved</div>
-            <div class="mustChooseDayAlert alert alert-warning" role="alert">You must choose day in week.</div>
-            <button id="saveMenuButton" class="btn btn-outline-success" onclick="save()">Save Menu</button>
-        </div>
-
-    </div>
-
-
+    </script>
 
 
 
@@ -145,6 +150,42 @@
             <div class="totalFat">Total Fat: {{formatNumber fat}}</div>
             <div class="totalSugars">Total Sugars: {{formatNumber sugars}}</div>
         </div>
+    </script>
+
+    <script id="dailyMenu-template" type="text/x-handlebars-template">
+        <div class="dailyMenu row mx-auto">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    
+                    <h2 class="greenColor">Breakfast:</h1>
+                        {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+
+                    </div>
+                        {{/each}}
+                    <h2 class="greenColor">Lunch:</h1>
+                        {{#each lunch}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                        {{/each}}
+                    <h2 class="greenColor">Snack:</h1>
+                        {{#each snack}}
+                        {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                        {{/each}}
+                    <h2 class="greenColor">Dinner:</h1>
+                        {{#each dinner}}
+                        {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                        {{/each}}
+                </div>
+
+                </div>
+            </div>
     </script>
 
     <!-- <script id="menu-template" type="text/x-handlebars-template">
