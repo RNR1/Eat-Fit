@@ -23,6 +23,7 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 		.find(".foodName")
 		.text()
 	let meal = $("#meals").val()
+	if (!meal) { return }
 	if (user.foodData.name === foodName) {
 		menu.addToMenu(user.foodData)
 		renderer.renderMenu(menu[meal], meal)
@@ -37,6 +38,12 @@ $("#food-container").on("click", ".addToMenuButton", function() {
     }
 })
 
+const remove = (foodId, meal) => {
+	menu.removeFromMenu(foodId, meal)
+	renderer.renderMenu(menu[meal], meal)
+	renderer.renderFood(user.foodData)
+	renderer.renderNutrients(menu.nutrients)
+}
 // //for the second part of the project. comment it out for now.
 // let user = new User("Yaniv", 2500)
 // const loadPage = function () {

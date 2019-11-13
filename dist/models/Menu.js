@@ -21,12 +21,14 @@ class Menu {
         this.nutrients.sugars += food.sugars
     }
 
-    removeFromMenu(food, meal) {
-
-        this.nutrients.cal -= food.cal
-        this.nutrients.prot -= food.prot
-        this.nutrients.fat -= food.fat
-        this.nutrients.sugars -= food.sugars
+    removeFromMenu(foodId, meal) {
+        
+        let food = this[meal].findIndex(f => f._id === foodId)
+        this.nutrients.cal -= this[meal][food].cal
+        this.nutrients.prot -= this[meal][food].prot
+        this.nutrients.fat -= this[meal][food].fat
+        this.nutrients.sugars -= this[meal][food].sugars
+        this[meal].splice(food, 1)
     }
 
     save() {
