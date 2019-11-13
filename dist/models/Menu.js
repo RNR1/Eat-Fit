@@ -6,7 +6,7 @@ class Menu {
         this.Snack = []
         this.Dinner= []
         
-        this.totalCal = 0
+        this.nutrients = {}
 
     }
 
@@ -14,17 +14,20 @@ class Menu {
         let meal = $("#meals").val()
         this[meal].push(food)
         
-        this.totalCal += food.cal
-        
+
+        //If we had nutrients as object I could make it in 1 line :(
+        this.nutrients.cal += food.cal
+        this.nutrients.prot += food.prot
+        this.nutrients.fat += food.fat
+        this.nutrients.sugars += food.sugars   
     }
 
     removeFromMenu(food, meal) {
-        let requiredFood = this[meal].findIndex(f => f.name === food)
-        console.log(requiredFood)
-        // let requiredMeal = this.menuData.findIndex(f => f.name === food)
-        // this.totalCal -= this.menuData[requiredFoodIndex].cal
-        // this.menuData.splice(requiredFoodIndex, 1)
 
+        this.nutrients.cal -= food.cal
+        this.nutrients.prot -= food.prot
+        this.nutrients.fat -= food.fat
+        this.nutrients.sugars -= food.sugars   
     }
 
     save() {
