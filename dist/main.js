@@ -32,6 +32,9 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 	} else {
 		console.log("Problem, Big One.")
     }
+    if(user.bmr < menu.nutrients.cal) {
+        console.log("Notice , you have reached your daily BMR")
+    }
 })
 
 // //for the second part of the project. comment it out for now.
