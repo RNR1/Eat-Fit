@@ -14,29 +14,43 @@
 
 <body>
     <div id="header"><img id="logo" src="./img/logo.png"></div>
+    <div class="welcomeUser">
+        <div id="userName" class="greenColor"></div>
+        <div id="userBMR"></div>
+    </div>
+
+
     <div class="row mx-auto" style="width: 1200px;">
-        <div class="col-4">
-            <div class="mx-auto">
-                <div id="userName"></div>
-                <div id="userBMR"></div>
-                <input id="searchFood" type="text"><button id="searchButton"
-                    class="btn btn-outline-dark">SEARCH</button>
-            </div>
+        <div class="border border-dark rounded text-center col-5 p-3 mx-auto">
+                <h1 class="greenColor mb-04">Search Food</h1>
+                    <div class="input-group mb-3">
+                            <input id="searchFood" type="text" class="form-control" placeholder="What you want to eat ?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                              <button id="searchButton" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                            </div>
+                          </div>
+
+
 
             <select id="meals">
-                <option selected disabled>Select Meal</option>
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Snack">Snack</option>
-                <option value="Dinner">Dinner</option>
+                <option class="ml" selected disabled>Select Meal</option>
+                <option class="ml" value="Breakfast">Breakfast</option>
+                <option class="ml" value="Lunch">Lunch</option>
+                <option class="ml" value="Snack">Snack</option>
+                <option class="ml" value="Dinner">Dinner</option>
             </select>
 
             <div id="food-container"></div>
+
+            <div class="row mx-auto">
+                <div class="col-10 mx-auto">
+                </div>
+            </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-4">
             <div class="Menu">
-                <h1 id="menuHeadline">Your Daily Menu</h1>
+                <h1 class="greenColor">Your Daily Menu</h1>
                 <div class="foods">
                     <h4>Breakfast:</h4>
                     <div class="Breakfast"></div>
@@ -48,19 +62,19 @@
                     <div class="Dinner"></div>
                 </div>
             </div>
-            <div id="totalCalMessage"></div>
+
+            <div id="totals"></div>
 
             <select id="days">
-                    <option selected disabled>Select Day</option>
-                    <option value="Sunday">Sunday</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednsday">Wednsday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                </select>
-                <div id="totals"></div>
+                <option selected disabled>Select Day</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednsday">Wednsday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
             <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
         </div>
 
@@ -71,23 +85,22 @@
 
 
     <script id="food-template" type="text/x-handlebars-template">
-        <div class="Food row border border-dark rounded">
-            <div class="col-4">
-                <div class="foodName">{{name}}</div>
-                <div class="foodServingUnit">Serving: {{servingUnit}}</div>
-                <img class="foodIMG" src={{img}} width="70px" >
+        <div class="Food row">
+                <div class="col-4">
+                    <div class="foodName">{{name}}</div>
+                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                    <img class="foodIMG" src={{img}} width="70px" >
+                </div>
+                <div class="col-5">
+                    <div class="foodCal">Cal: {{cal}}</div>
+                    <div class="foodprot">Protein: {{prot}}</div>
+                    <div class="foodFat">Fat: {{fat}}</div>
+                    <div class="foodSugras">Sugars: {{sugars}}</div>
+                </div>
+                <div class="col-3">
+                        <i class="addToMenuButton fas fa-plus"></i>
+                </div>
             </div>
-            <div class="col-4">
-                <div class="foodCal">Cal: {{cal}}</div>
-                <div class="foodprot">Protein: {{prot}}</div>
-                <div class="foodFat">Fat: {{fat}}</div>
-                <div class="foodSugras">Sugars: {{sugars}}</div>
-            </div>
-            <div class="col-4">
-                    <i class="addToMenuButton fas fa-plus"></i>
-                    <!-- <button class="addToMenuButton">Add To Menu</button> -->
-            </div>
-        </div>
     </script>
 
 
@@ -100,14 +113,16 @@
                               <div class="foodServingUnit">Serving: {{servingUnit}}</div>
                               <img class="foodIMG" src={{img}} height="40px" >
                           </div>
-                          <div class="nutrientsData col-4">
+                          <div class="nutrientsData col-5">
                               <div class="foodCal">Cal: {{cal}}</div>
                               <div class="foodprot">Protein: {{prot}}</div>
                               <div class="foodFat">Fat: {{fat}}</div>
                               <div class="foodSugras">Sugars: {{sugars}}</div>
                           </div>
-                          <div class="eventButton col-4">
+
+                          <div class="eventButton col-3">
                                 <i class="far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
+
                           </div>
                       </div>
                       {{/each}}
