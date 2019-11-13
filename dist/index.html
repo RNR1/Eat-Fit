@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Eat-Fit</title>
+    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -13,8 +14,8 @@
 
 <body>
     <div id="header"><img id="logo" src="./img/logo.png"></div>
-    <div class="row mx-auto" style="width: 1000px;">
-        <div class="col-6">
+    <div class="row mx-auto" style="width: 1200px;">
+        <div class="col-4">
             <div class="mx-auto">
                 <div id="userName"></div>
                 <div id="userBMR"></div>
@@ -32,8 +33,8 @@
 
             <div id="food-container"></div>
         </div>
-
-        <div class="col-6">
+        <div class="col-2"></div>
+        <div class="col-4">
             <div class="Menu">
                 <h1 id="menuHeadline">Your Daily Menu</h1>
                 <div class="foods">
@@ -70,23 +71,30 @@
 
 
     <script id="food-template" type="text/x-handlebars-template">
-        <div class="Food border border-dark rounded">
-            <div class="foodName">{{name}}</div>
-            <div class="foodServingUnit">Serving: {{servingUnit}}</div>
-            <div class="foodCal">Cal: {{cal}}</div>
-            <div class="foodprot">Protein: {{prot}}</div>
-            <div class="foodFat">Fat: {{fat}}</div>
-            <div class="foodSugras">Sugars: {{sugars}}</div>
-            <img class="foodIMG" src={{img}} >
-            <div class="foodbuttons">
-                <button class="addToMenuButton">Add To Menu</button>
+        <div class="Food row border border-dark rounded">
+            <div class="col-4">
+                <div class="foodName">{{name}}</div>
+                <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                <img class="foodIMG" src={{img}} width="70px" >
+            </div>
+            <div class="col-4">
+                <div class="foodCal">Cal: {{cal}}</div>
+                <div class="foodprot">Protein: {{prot}}</div>
+                <div class="foodFat">Fat: {{fat}}</div>
+                <div class="foodSugras">Sugars: {{sugars}}</div>
+            </div>
+            <div class="col-4 mx-auto">
+                    <i class="addToMenuButton fas fa-plus"></i>
+                    <!-- <button class="addToMenuButton">Add To Menu</button> -->
             </div>
         </div>
     </script>
 
+
+
     <script id="foodInMenu-template" type="text/x-handlebars-template">
                       {{#each menu}}
-                      <div class="row border border-dark rounded">
+                      <div class="foodInMenu row border border-dark rounded">
                           <div class="col-4">
                               <div class="foodName">{{name}}</div>
                               <div class="foodServingUnit">Serving: {{servingUnit}}</div>
@@ -99,9 +107,7 @@
                               <div class="foodSugras">Sugars: {{sugars}}</div>
                           </div>
                           <div class="col-4">
-                              <div class="foodbuttons">
                                   <button class="removeFromMenuButton">Remove From Menu</button>
-                              </div>
                           </div>
                       </div>
                       {{/each}}
