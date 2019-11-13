@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Eat-Fit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <input id="searchFood" type="text"><button id="searchButton">SEARCH</button>
+    <div class="container center">
+        <div class="row">
+            <div>
+                <input id="searchFood" class="col-7" type="text"><button id="searchButton"
+                    class="btn btn-outline-dark col-3">SEARCH</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <select>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Snack">Snack</option>
+                <option value="Dinner">Dinner</option>
+            </select>
+        </div>
+
+            <select>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednsday">Wednsday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
+
+
+
     </div>
-    <select>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="snack">Snack</option>
-        <option value="dinner">Dinner</option>
-      </select>
-      
+    <div class="row">
+        <div id="food-container"></div>
+        <div id="totalCalMessage"></div>
+        <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
     </div>
 
-    <div id="food-container"></div>
-    <div id="AppendMenuOverViewOrCartResultsHere_andChangeThisName"></div>
-    <div id="totalCalMessage"></div>
-    <button id="saveMenuButton">Save Menu</button>
+    </div>
 
-
-
-      <script id="food-template" type="text/x-handlebars-template">
+    <script id="food-template" type="text/x-handlebars-template">
 
         <div class="Food">
             <div class="foodName">{{name}}</div>
@@ -45,7 +68,7 @@
 
 
     </script>
-    
+
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
 
@@ -54,4 +77,5 @@
     <script src="./Renderer.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
