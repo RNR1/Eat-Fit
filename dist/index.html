@@ -57,7 +57,7 @@
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
                 </select>
-
+                <div id="totals"></div>
             <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
         </div>
 
@@ -78,7 +78,6 @@
             <img class="foodIMG" src={{img}} >
             <div class="foodbuttons">
                 <button class="addToMenuButton">Add To Menu</button>
-                <button class="removeFromMenuButton">Remove From Menu</button>
             </div>
         </div>
     </script>
@@ -98,6 +97,15 @@
             </div>
         </div>
         {{/each}}
+    </script>
+
+    <script id="nutrients-template" type="text/x-handlebars-template">
+        <div class="Nutrients">
+            <div class="totalCal">Total Cal: {{cal}}</div>
+            <div class="totalProt">Total Prot: {{prot}}</div>
+            <div class="totalFat">Total Fat: {{fat}}</div>
+            <div class="totalSugars">Total Sugars: {{sugars}}</div>
+        </div>
     </script>
 
     <!-- <script id="menu-template" type="text/x-handlebars-template">
