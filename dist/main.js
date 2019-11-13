@@ -14,6 +14,7 @@ $("#food-container").on("click", ".addToMenuButton", function () {
     if (user.foodData.name === foodName) {
         menu.addToMenu(user.foodData)
         renderer.renderFood(user.foodData, menu.totalCal)
+        renderer.renderMenu(menu.Breakfast)
         //Show message to user that it`s added
     } else {
         console.log("Problem, Big One.")
@@ -24,12 +25,13 @@ $("#food-container").on("click", ".addToMenuButton", function () {
 
 
 $("#food-container").on("click", ".removeFromMenuButton", function () {
-    let food = $(this).closest(".Food").find(".foodName").text()
-    menu.removeFromMenu(food)
-    renderer.renderFood(user.foodData, menu.totalCal)
-    //Show message to user that it`s removed
-
-})
+    let foodName = $(this).closest(".Food").find(".foodName").text()
+    if (user.foodData.name === foodName) {
+        menu.removeFromMenu(user.foodData)
+        renderer.renderFood(user.foodData, menu.totalCal)
+        //Show message to user that it`s removed
+    }
+    })
 
 
 // //for the second part of the project. comment it out for now.
