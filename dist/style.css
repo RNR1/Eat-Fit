@@ -1,7 +1,10 @@
  /* *{
     text-align: center;
  }  */
- 
+ body{
+     background-color: #f5f5f5;
+ }
+
 #saveMenuButton{
 margin-top: 100px;
 }
@@ -14,21 +17,56 @@ margin-top: 100px;
     border-bottom: 2px solid #4d4d4d;
 }
 #logo{
+    padding-top:15px;
     display: block;
     width: 200px;
 }
 
-#menuHeadline{
+.greenColor{
     color: #9EB038;
-
 }
+
 .addToMenuButton{
     cursor: pointer;
     font-size: 4em;
-    color: #9EB038;
+    color: #9EB038; 
+    margin-top: 25px;
 }
 .removeFromMenuButton{
     cursor: pointer;
     font-size: 3.5em;
     color: red;
+    margin-top: 25px;
 }
+
+ .Food{
+    margin-top: 20px;
+}
+.foodInMenu{
+    margin: 10px;
+    
+}
+.welcomeUser{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#totals{
+    font-size: 2em;
+    margin-top: 50px;
+    /* text-align: center; */
+}
+ #meals{
+    width: 100%;
+ }
+ #days{
+    width: 100%;
+ }
+ /* #meals .ml{
+     text-align: center !important;
+ } */
+ .Menu{
+     overflow: scroll;
+     overflow-x: hidden;
+     height: 400px;
+ }
+
