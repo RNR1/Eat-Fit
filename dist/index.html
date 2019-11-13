@@ -35,10 +35,14 @@
             <div class="Menu">
                 <h1>Your Daily Menu</h1>
                 <div class="foods">
-                    <div class="breakfast">Breakfast:</div>
-                    <div class="Lunch">Lunch:</div>
-                    <div class="Snack">Snack:</div>
-                    <div class="Dinner">Dinner:</div>
+                    <h4>Breakfast:</h4>
+                    <div class="Breakfast"></div>
+                    <h4>Lunch:</h4>
+                    <div class="Lunch"></div>
+                    <h4>Snack:</h4>
+                    <div class="Snack"></div>
+                    <h4>Dinner:</h4>
+                    <div class="Dinner"></div>
                 </div>
             </div>
             <div id="totalCalMessage"></div>
@@ -80,7 +84,7 @@
     </script>
 
     <script id="foodInMenu-template" type="text/x-handlebars-template">
-        {{#each food}}
+        {{#each menu}}
         <div class="Food">
             <div class="foodName">{{name}}</div>
             <div class="foodServingUnit">Serving: {{servingUnit}}</div>
