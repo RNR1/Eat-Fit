@@ -55,10 +55,7 @@ class User {
         })
     }
 
-    showDetails() {
-        $("#userName").append(`<h2> Hi ${this.name} </h2>`)
-        $("#userBMR").append(`<h3> Your BMR is ${this.bmr} </h3`)
-    }
+    
 
 
 }

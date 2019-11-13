@@ -3,7 +3,7 @@ HandlebarsIntl.registerWith(Handlebars)
 let menu = new Menu()
 let user = new User(1,"Yaniv", 1700)
 const renderer = new Renderer()
-user.showDetails()
+renderer.renderUserDetails()
 $('#searchButton').on('click', async function () {
     let input = $('#searchFood').val()
     await user.getFood(input)
