@@ -22,7 +22,7 @@
 
 
 
-
+    <div id="todaysMenu"></div>
 
 
 
@@ -36,29 +36,37 @@
                 <div class="col-2">
                 </div>
                 <div class="col-8">
+                    
                     <h2 class="greenColor">Breakfast:</h1>
                         {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
 
+                    </div>
                         {{/each}}
                     <h2 class="greenColor">Lunch:</h1>
                         {{#each lunch}}
-                        
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
                         {{/each}}
                     <h2 class="greenColor">Snack:</h1>
                         {{#each snack}}
-                        
+                        {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
                         {{/each}}
                     <h2 class="greenColor">Dinner:</h1>
                         {{#each dinner}}
-
+                        {{#each breakfast}}
+                        <div class="foodName">{{name}}</div>
+                        <div class="foodServingUnit">Serving: {{servingUnit}}</div>
                         {{/each}}
                 </div>
 
 
 
 
-                </div>
-                <div class="col-2">
+                
 
                 </div>
             </div>

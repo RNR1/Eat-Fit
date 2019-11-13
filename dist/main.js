@@ -1,7 +1,7 @@
 HandlebarsIntl.registerWith(Handlebars)
 
 let menu = new Menu()
-let user = new User("5dcae6138959823f9819caa3","John Doe", 1800)
+let user = new User("5dcc78f839702620ec3134a2","Yaniv Sultan", 1800)
 const renderer = new Renderer()
 renderer.renderUserDetails()
 
@@ -60,11 +60,10 @@ const notifications = function(className){
     setTimeout(()=> $(`.${className}`).toggle(),2000)
 }
 // //for the second part of the project. comment it out for now.
-// let user = new User("Yaniv", 2500)
-// const loadPage = function () {
-//     user.getDailyMenu()
-// }
-// loadPage()
 
+const loadPage = async function () {
+   await user.getDailyMenu()
+    renderer.renderDailyMenu(user.dailyMenu)
+}
+loadPage()
 
-// $('.collapse').collapse('toggle')

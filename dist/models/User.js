@@ -3,7 +3,7 @@ class User {
 		this.id = id
 		this.name = name
 		this.bmr = bmr
-		this.dailyMenu = []
+		this.dailyMenu = {}
 		this.foodData = {}
 	}
 

@@ -1,5 +1,5 @@
 class Renderer {
-    renderFood(foods, cal) {
+    renderFood(foods) {
         const source = $('#food-template').html();
         const template = Handlebars.compile(source);
         let newHTML = template(foods);
@@ -26,5 +26,12 @@ class Renderer {
     renderUserDetails() {
         $("#userName").append(`<h2> Hi ${user.name} </h2>`)
         $("#userBMR").append(`<h3> Your BMR is ${user.bmr} </h3`)
+    }
+
+    renderDailyMenu(dailyMenuObj){
+        const source = $('#dailyMenu-template').html();
+        const template = Handlebars.compile(source);
+        let newHTML = template(dailyMenuObj);
+        $("#todaysMenu").empty().append(newHTML);
     }
 }
