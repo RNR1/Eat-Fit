@@ -32,16 +32,19 @@ class User {
             console.log("The menu is empty")
             //show message to user.
         } else {
-            await $.post(`/user/menu`, dailyMenu)
+            
+            await $.post(`/user/menu`, {userId: this.id, menuId: this.dailyMenu.id})
         }
     }
 
     async removeMenu(){
-        this.dailyMenu = {}
+        
         await $.ajax({
             url: `/menu`,
             type: 'DELETE',
+            data: {userId: this.userId, selectedDay: this.dailyMenu.dayInWeek},
             success: function(result) {
+                this.dailyMenu = []
                 console.log("Menu Deleted")
             }
         })
