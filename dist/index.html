@@ -33,7 +33,7 @@
 
         <div class="col-6">
             <div class="Menu">
-                <h1>Your Daily Menu</h1>
+                <h1 id="menuHeadline">Your Daily Menu</h1>
                 <div class="foods">
                     <h4>Breakfast:</h4>
                     <div class="Breakfast"></div>
@@ -68,7 +68,7 @@
 
 
     <script id="food-template" type="text/x-handlebars-template">
-        <div class="Food">
+        <div class="Food border border-dark rounded">
             <div class="foodName">{{name}}</div>
             <div class="foodServingUnit">Serving: {{servingUnit}}</div>
             <div class="foodCal">Cal: {{cal}}</div>
@@ -83,39 +83,28 @@
     </script>
 
     <script id="foodInMenu-template" type="text/x-handlebars-template">
-        {{#each menu}}
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                {{name}}
-              </button>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
-                    <div class="foodCal">Cal: {{cal}}</div>
-                    <div class="foodprot">Protein: {{prot}}</div>
-                    <div class="foodFat">Fat: {{fat}}</div>
-                    <div class="foodSugras">Sugars: {{sugars}}</div>
-                    <img class="foodIMG" src={{img}} >
-                    <div class="foodbuttons">
-                        <button class="removeFromMenuButton">Remove From Menu</button>
-                    </div>
-              </div>
-              {{/each}}
-                      <!-- {{#each menu}}
-                      <div class="Food">
-                          <div class="foodName">{{name}}</div>
-                          <div class="foodServingUnit">Serving: {{servingUnit}}</div>
-                          <div class="foodCal">Cal: {{cal}}</div>
-                          <div class="foodprot">Protein: {{prot}}</div>
-                          <div class="foodFat">Fat: {{fat}}</div>
-                          <div class="foodSugras">Sugars: {{sugars}}</div>
-                          <img class="foodIMG" src={{img}} >
-                          <div class="foodbuttons">
-                              <button class="removeFromMenuButton">Remove From Menu</button>
+                      {{#each menu}}
+                      <div class="row border border-dark rounded">
+                          <div class="col-4">
+                              <div class="foodName">{{name}}</div>
+                              <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                              <img class="foodIMG" src={{img}} height="40px" >
+                          </div>
+                          <div class="col-4">
+                              <div class="foodCal">Cal: {{cal}}</div>
+                              <div class="foodprot">Protein: {{prot}}</div>
+                              <div class="foodFat">Fat: {{fat}}</div>
+                              <div class="foodSugras">Sugars: {{sugars}}</div>
+                          </div>
+                          <div class="col-4">
+                              <div class="foodbuttons">
+                                  <button class="removeFromMenuButton">Remove From Menu</button>
+                              </div>
                           </div>
                       </div>
-                      {{/each}} -->
+                      {{/each}}
                   </script>
-            </div>
+    </div>
 
     <!-- <script id="menu-template" type="text/x-handlebars-template">
 
