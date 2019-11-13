@@ -16,6 +16,8 @@
     <div class="row mx-auto" style="width: 1000px;">
         <div class="col-6">
             <div class="mx-auto">
+                <div id="userName"></div>
+                <div id="userBMR"></div>
                 <input id="searchFood" type="text"><button id="searchButton"
                     class="btn btn-outline-dark">SEARCH</button>
             </div>
@@ -48,16 +50,16 @@
             <div id="totalCalMessage"></div>
 
             <select id="days">
-                <option selected disabled>Select Day</option>
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednsday">Wednsday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-            </select>
-
+                    <option selected disabled>Select Day</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednsday">Wednsday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+                <div id="totals"></div>
             <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
         </div>
 
@@ -106,6 +108,15 @@
                   </script>
     </div>
 
+    <script id="nutrients-template" type="text/x-handlebars-template">
+        <div class="Nutrients">
+            <div class="totalCal">Total Cal: {{formatNumber cal}}</div>
+            <div class="totalProt">Total Prot: {{formatNumber prot}}</div>
+            <div class="totalFat">Total Fat: {{formatNumber fat}}</div>
+            <div class="totalSugars">Total Sugars: {{formatNumber sugars}}</div>
+        </div>
+    </script>
+
     <!-- <script id="menu-template" type="text/x-handlebars-template">
 
         <div class="Menu">
@@ -132,6 +143,7 @@
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="handlebars-intl/dist/handlebars-intl.min.js"></script>
 
     <script src="./models/Menu.js"></script>
     <script src="./models/User.js"></script>

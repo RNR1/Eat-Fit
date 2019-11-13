@@ -4,16 +4,24 @@ class Renderer {
         const template = Handlebars.compile(source);
         let newHTML = template(foods);
         $("#food-container").empty().append(newHTML);
-        if (cal || cal === 0)
-            $("#totalCalMessage").empty().append(`The Total Calories you have in your menu is: ${cal}`);
-
     }
 
-    renderMenu(menu ,container) {
+    renderMenu(menu, container) {
         const source = $('#foodInMenu-template').html();
         const template = Handlebars.compile(source);
-        let newHTML = template( {menu} );
+        let newHTML = template({ menu });
         $(`.${container}`).empty().append(newHTML);
+    }
 
+    renderNutrients(nutrientsObj) {
+        const source = $('#nutrients-template').html();
+        const template = Handlebars.compile(source);
+        let newHTML = template(nutrientsObj);
+        $("#totals").empty().append(newHTML);
+    }
+
+    renderUserDetails() {
+        $("#userName").append(`<h2> Hi ${user.name} </h2>`)
+        $("#userBMR").append(`<h3> Your BMR is ${user.bmr} </h3`)
     }
 }
