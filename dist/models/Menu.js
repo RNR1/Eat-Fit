@@ -13,8 +13,7 @@ class Menu {
     addToMenu(food) {
         let meal = $("#meals").val()
         this[meal].push(food)
-        let day = $("#days").val()
-        this.dayInWeek = day
+        
         this.totalCal += food.cal
         
     }
@@ -29,6 +28,7 @@ class Menu {
     }
 
     save() {
+        this.dayInWeek = $("#days").val()
         $.post('/menu', this)
     }
 }
