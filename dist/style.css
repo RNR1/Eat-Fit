@@ -23,6 +23,12 @@ margin-top: 100px;
 
 }
 .addToMenuButton{
-    font-size: 3em;
+    cursor: pointer;
+    font-size: 4em;
     color: #9EB038;
+}
+.removeFromMenuButton{
+    cursor: pointer;
+    font-size: 3.5em;
+    color: red;
 }

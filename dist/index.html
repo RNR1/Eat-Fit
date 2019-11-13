@@ -83,7 +83,7 @@
                 <div class="foodFat">Fat: {{fat}}</div>
                 <div class="foodSugras">Sugars: {{sugars}}</div>
             </div>
-            <div class="col-4 mx-auto">
+            <div class="col-4">
                     <i class="addToMenuButton fas fa-plus"></i>
                     <!-- <button class="addToMenuButton">Add To Menu</button> -->
             </div>
@@ -95,19 +95,19 @@
     <script id="foodInMenu-template" type="text/x-handlebars-template">
                       {{#each menu}}
                       <div class="foodInMenu row border border-dark rounded">
-                          <div class="col-4">
+                          <div data-id="{{_id}}" class="foodData col-4">
                               <div class="foodName">{{name}}</div>
                               <div class="foodServingUnit">Serving: {{servingUnit}}</div>
                               <img class="foodIMG" src={{img}} height="40px" >
                           </div>
-                          <div class="col-4">
+                          <div class="nutrientsData col-4">
                               <div class="foodCal">Cal: {{cal}}</div>
                               <div class="foodprot">Protein: {{prot}}</div>
                               <div class="foodFat">Fat: {{fat}}</div>
                               <div class="foodSugras">Sugars: {{sugars}}</div>
                           </div>
-                          <div class="col-4">
-                                  <button class="removeFromMenuButton">Remove From Menu</button>
+                          <div class="eventButton col-4">
+                                <i class="removeFromMenuButton far fa-trash-alt"></i>
                           </div>
                       </div>
                       {{/each}}
