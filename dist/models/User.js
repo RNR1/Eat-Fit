@@ -1,5 +1,6 @@
 class User {
-    constructor(name, bmr) {
+    constructor(id, name, bmr) {
+        this.id = id
         this.name = name
         this.bmr = bmr
         this.dailyMenu = []
@@ -14,7 +15,7 @@ class User {
         await $.ajax({
             url: `/consume`,
             type: 'PUT',
-            data: {foodId: foodId,
+            data: {userId: this.id, foodId: foodId,
                     meal: meal},
             success: function(result) {
                 console.log("Food Consumed")
