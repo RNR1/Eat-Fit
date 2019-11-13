@@ -29,22 +29,22 @@
             </select>
         </div>
 
-            <select>
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednsday">Wednsday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-            </select>
+        <select>
+            <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednsday">Wednsday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+        </select>
 
 
 
     </div>
+    <div id="totalCalMessage"></div>
     <div class="row">
         <div id="food-container"></div>
-        <div id="totalCalMessage"></div>
         <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
     </div>
 
@@ -65,7 +65,19 @@
                 <button class="removeFromMenuButton">Remove From Menu</button>
             </div>
         </div>
+    </script>
 
+    <script id="menu-template" type="text/x-handlebars-template">
+
+        <div class="Menu">
+            <h1>Your Daily Menu</h1>
+            <div class="foods">
+                <div class="breakfast">Breakfast:</div>
+                <div class="breakfast">Lunch:</div>
+                <div class="breakfast">Snack:</div>
+                <div class="breakfast">Dinner:</div>
+            </div>
+        </div>
 
     </script>
 
