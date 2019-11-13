@@ -12,23 +12,45 @@
 </head>
 
 <body>
-    <div class="container center">
-        <div class="row">
-            <div>
-                <input id="searchFood" class="col-7" type="text"><button id="searchButton"
-                    class="btn btn-outline-dark col-3">SEARCH</button>
+    <div id="header"><img id="logo" src="./img/logo.png"></div>
+    <div class="row mx-auto" style="width: 1000px;">
+        <div class="col-6">
+            <div class="mx-auto">
+                <input id="searchFood" type="text"><button id="searchButton"
+                    class="btn btn-outline-dark">SEARCH</button>
             </div>
+<<<<<<< HEAD
         </div>
 
         <div class="row">
             <select id="meals">
+=======
+        
+            <select>
+                <option selected disabled>Select Meal</option>
+>>>>>>> master
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Snack">Snack</option>
                 <option value="Dinner">Dinner</option>
             </select>
+        
+            <div id="food-container"></div>
         </div>
+    
+        <div class="col-6">
+            <div class="Menu">
+                <h1>Your Daily Menu</h1>
+                <div class="foods">
+                    <div class="breakfast">Breakfast:</div>
+                    <div class="Lunch">Lunch:</div>
+                    <div class="Snack">Snack:</div>
+                    <div class="Dinner">Dinner:</div>
+                </div>
+            </div>
+            <div id="totalCalMessage"></div>
 
+<<<<<<< HEAD
         <select id="days">
             <option value="Sunday">Sunday</option>
             <option value="Monday">Monday</option>
@@ -38,20 +60,29 @@
             <option value="Friday">Friday</option>
             <option value="Saturday">Saturday</option>
         </select>
+=======
+            <select>
+                    <option selected disabled>Select Day</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednsday">Wednsday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
 
-
+            <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
+        </div>
+>>>>>>> master
 
     </div>
-    <div id="totalCalMessage"></div>
-    <div class="row">
-        <div id="food-container"></div>
-        <button id="saveMenuButton" class="btn btn-outline-success">Save Menu</button>
-    </div>
 
-    </div>
+
+
+
 
     <script id="food-template" type="text/x-handlebars-template">
-
         <div class="Food">
             <div class="foodName">{{name}}</div>
             <div class="foodServingUnit">Serving: {{servingUnit}}</div>
@@ -67,19 +98,36 @@
         </div>
     </script>
 
-    <script id="menu-template" type="text/x-handlebars-template">
+    <script id="foodInMenu-template" type="text/x-handlebars-template">
+        {{#each food}}
+        <div class="Food">
+            <div class="foodName">{{name}}</div>
+            <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+            <div class="foodCal">Cal: {{cal}}</div>
+            <div class="foodprot">Protein: {{prot}}</div>
+            <div class="foodFat">Fat: {{fat}}</div>
+            <div class="foodSugras">Sugars: {{sugars}}</div>
+            <img class="foodIMG" src={{img}} >
+            <div class="foodbuttons">
+                <button class="removeFromMenuButton">Remove From Menu</button>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!-- <script id="menu-template" type="text/x-handlebars-template">
 
         <div class="Menu">
             <h1>Your Daily Menu</h1>
             <div class="foods">
                 <div class="breakfast">Breakfast:</div>
-                <div class="breakfast">Lunch:</div>
-                <div class="breakfast">Snack:</div>
-                <div class="breakfast">Dinner:</div>
-            </div>
+                <div class="Lunch">Lunch:</div>
+                <div class="Snack">Snack:</div>
+                <div class="Dinner">Dinner:</div>
+            </div>  
         </div>
 
-    </script>
+    </script> -->
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
