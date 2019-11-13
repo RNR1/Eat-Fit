@@ -3,6 +3,7 @@ HandlebarsIntl.registerWith(Handlebars)
 let menu = new Menu()
 let user = new User(1,"Yaniv", 1700)
 const renderer = new Renderer()
+renderer.renderUserDetails()
 
 $("#searchButton").on("click", async function() {
 	let input = $("#searchFood").val()
@@ -30,9 +31,9 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 		//Show message to user that it`s added
 	} else {
 		console.log("Problem, Big One.")
-	}
+    }
+})
 
-renderer.renderUserDetails()
 $('#searchButton').on('click', async function () {
     let input = $('#searchFood').val()
     await user.getFood(input)
