@@ -8,7 +8,7 @@ const foodSchema = new Schema({
     fat:{ type: Number, required: true },
     prot:{ type: Number, required: true },
     sugars:{ type: Number, required: true },
-    img:{ type: String, required: true },
+    img:{ type: String },
     consumed: {type: Boolean, required: true}
 })
 
