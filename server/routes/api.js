@@ -9,8 +9,8 @@ const Meal = require("../models/Meal").Meal
 const Food = require("../models/Food").Food
 const api = "https://trackapi.nutritionix.com/v2"
 const headers = {
-	"x-app-key": "d4c3759bd88220ecc131b40113c4bee2",
-	"x-app-id": "e87c50a2"
+	"x-app-key":"2ee3b354a69d0adfc47da6190f18c973",
+	"x-app-id": "f42cad4d"
 }
 
 router.get("/food/:foodName", async (req, res) => {
@@ -70,9 +70,8 @@ router.get("/menu/:userId", async (req, res) => {
 router.post("/menu", async (req, res) => {
 	// Save current daily menu to DB, to be executed by Menu.save().
 	// Body: an Object similar to menu schema.
-	let menu = req.body
 	menu = new Menu({ ...req.body })
-
+	console.log(menu)
 	await menu.save()
 	res.send(menu)
 })

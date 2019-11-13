@@ -31,8 +31,22 @@ class Menu {
         this[meal].splice(food, 1)
     }
 
-    save() {
+    async save() {
         this.dayInWeek = $("#days").val()
-        $.post('/menu', this)
+        let body = {
+            dayInWeek: this.dayInWeek,
+            breakfast: this.Breakfast,
+            lunch: this.Lunch,
+            snack: this.Snack,
+            dinner: this.Dinner,
+            nutrients: {
+                cal: this.nutrients.cal,
+                fat: this.nutrients.fat,
+                sugars: this.nutrients.sugars,
+                protein: this.nutrients.prot
+            }
+        }
+        let menu = await $.post('/menu', body)
+        return menu
     }
 }
