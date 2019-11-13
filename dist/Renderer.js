@@ -9,6 +9,9 @@ class Renderer {
     renderMenu(menu, container) {
         const source = $('#foodInMenu-template').html();
         const template = Handlebars.compile(source);
+        try {
+        menu[0].meal = container
+        } catch(err) {}
         let newHTML = template({ menu });
         $(`.${container}`).empty().append(newHTML);
     }

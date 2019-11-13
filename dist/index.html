@@ -119,8 +119,10 @@
                               <div class="foodFat">Fat: {{fat}}</div>
                               <div class="foodSugras">Sugars: {{sugars}}</div>
                           </div>
+
                           <div class="eventButton col-3">
-                                <i class="removeFromMenuButton far fa-trash-alt"></i>
+                                <i class="far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
+
                           </div>
                       </div>
                       {{/each}}
