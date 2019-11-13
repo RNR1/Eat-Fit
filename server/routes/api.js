@@ -7,6 +7,7 @@ const User = require('../models/User')
 const Menu = require('../models/Menu').Menu
 const Meal = require('../models/Meal').Meal
 const Food = require('../models/Food').Food
+const api = "https://trackapi.nutritionix.com/v2"
 const headers = {
 	'x-app-key': '2aa1e21b20e91d5ab15239f17a36611b',
 	'x-app-id': 'd1a21d2f'
@@ -18,7 +19,7 @@ router.get('/food/:foodName', async (req, res) => {
 
 	let foodName = req.params.foodName
 	const getItems = {
-		uri: `https://trackapi.nutritionix.com/v2/search/instant?query=${foodName}`,
+		uri: `${api}/search/instant?query=${foodName}`,
 		headers: headers,
 		json: true
 	}
@@ -27,7 +28,7 @@ router.get('/food/:foodName', async (req, res) => {
 
 	const getNutrients = {
 		method: 'POST',
-		uri: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+		uri: `${api}/natural/nutrients`,
 		headers: headers,
 		body: {
 			query: items.common[0]['food_name']
@@ -40,10 +41,10 @@ router.get('/food/:foodName', async (req, res) => {
 	let food = new Food({
 		name: items.food_name,
 		servingUnit: `${items.serving_qty} ${items.serving_unit}`,
-		cal: items.nf_calories,
-		fat: items.nf_total_fat,
-		prot: items.nf_protein,
-		sugars: items.nf_sugars,
+		cal: items.nf_calories || 0,
+		fat: items.nf_total_fat || 0,
+		prot: items.nf_protein || 0,
+		sugars: items.nf_sugars || 0,
 		img: items.photo.thumb,
 		consumed: false
 	})
