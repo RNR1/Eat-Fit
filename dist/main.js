@@ -43,3 +43,6 @@ $("#food-container").on("click", ".removeFromMenuButton", function () {
 //     user.getDailyMenu()
 // }
 // loadPage()
+
+
+// $('.collapse').collapse('toggle')
