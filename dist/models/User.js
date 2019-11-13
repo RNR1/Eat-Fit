@@ -47,6 +47,7 @@ class User {
 		}
 	}
 
+
 	async removeMenu() {
 		await $.ajax({
 			url: `/menu`,
@@ -61,4 +62,22 @@ class User {
 			}
 		})
 	}
+}
+
+    async removeMenu(){
+        
+        await $.ajax({
+            url: `/menu`,
+            type: 'DELETE',
+            data: {userId: this.userId, selectedDay: this.dailyMenu.dayInWeek},
+            success: function(result) {
+                this.dailyMenu = []
+                console.log("Menu Deleted")
+            }
+        })
+    }
+
+    
+
+
 }
