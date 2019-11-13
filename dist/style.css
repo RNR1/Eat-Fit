@@ -62,6 +62,7 @@
 
  #days{
     width: 100%;
+    margin-bottom: 20px;
  }
 
  .Menu{
@@ -69,5 +70,7 @@
      overflow-x: hidden;
      height: 400px;
  }
- 
+ .alert{
+     display: none;
+ }
 
