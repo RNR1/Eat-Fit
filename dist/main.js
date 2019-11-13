@@ -6,7 +6,7 @@ const renderer = new Renderer()
 renderer.renderUserDetails()
 
 $("#searchButton").on("click", async function() {
-	let input = $("#searchFood").val()
+    let input = $("#searchFood").val()
 	if (input === "") {
 		return
 	}
@@ -23,12 +23,13 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 		.find(".foodName")
 		.text()
 	let meal = $("#meals").val()
-	if (!meal) { return }
+	if (!meal) { return notifications("mustChooseMealAlert") }
 	if (user.foodData.name === foodName) {
-		menu.addToMenu(user.foodData)
+        menu.addToMenu(user.foodData)
 		renderer.renderMenu(menu[meal], meal)
 		renderer.renderFood(user.foodData)
 		renderer.renderNutrients(menu.nutrients)
+        notifications("foodAddedAlert")
 		//Show message to user that it`s added
 	} else {
 		console.log("Problem, Big One.")
@@ -39,15 +40,24 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 })
 
 const save = async () => {
+    let day = $("#days").val()
+    if (!day) { return notifications("mustChooseDayAlert")}
+    notifications("menuSavedAlert") // move this line to the bottom of the func and check that it works.
 	menu = await menu.save()
-	await user.createMenu(menu._id)
+    await user.createMenu(menu._id)
 }
 
 const remove = (foodId, meal) => {
 	menu.removeFromMenu(foodId, meal)
 	renderer.renderMenu(menu[meal], meal)
 	renderer.renderFood(user.foodData)
-	renderer.renderNutrients(menu.nutrients)
+    renderer.renderNutrients(menu.nutrients)
+    notifications("foodDeletedAlert")
+}
+
+const notifications = function(className){
+    $(`.${className}`).toggle()
+    setTimeout(()=> $(`.${className}`).toggle(),2000)
 }
 // //for the second part of the project. comment it out for now.
 // let user = new User("Yaniv", 2500)

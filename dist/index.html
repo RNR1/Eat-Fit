@@ -23,8 +23,8 @@
     <div class="row mx-auto" style="width: 1200px;">
         <div class="border border-dark rounded text-center col-5 p-3 mx-auto">
             <h1 class="greenColor mb-04">Search Food</h1>
-            <div class="alert alert-warning" role="alert">You must choose meal.</div>
-            <div class="alert alert-success" role="alert">Food added to menu.</div>
+            <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
+            <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
             <div class="input-group mb-3">
                 <input id="searchFood" type="text" class="form-control" placeholder="What you want to eat ?"
                     aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -55,7 +55,7 @@
         <div class="col-4">
             <div class="Menu">
                 <h1 class="greenColor">Your Daily Menu</h1>
-                <div hidden class="alert alert-success" role="alert">Food deleted from menu.</div>
+                <div class="foodDeletedAlert alert alert-success" role="alert">Food deleted from menu.</div>
                 <div class="foods">
                     <h4>Breakfast:</h4>
                     <div class="Breakfast"></div>
@@ -81,8 +81,8 @@
                 <option value="Saturday">Saturday</option>
             </select>
 
-            <div hidden class="alert alert-success" role="alert">Menu Saved</div>
-            <div hidden class="alert alert-warning" role="alert">You must choose day in week.</div>
+            <div class="menuSavedAlert alert alert-success" role="alert">Menu Saved</div>
+            <div class="mustChooseDayAlert alert alert-warning" role="alert">You must choose day in week.</div>
             <button id="saveMenuButton" class="btn btn-outline-success" onclick="save()">Save Menu</button>
         </div>
 
@@ -129,8 +129,7 @@
                           </div>
 
                           <div class="eventButton col-3">
-                                <i class="far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
-
+                                <i class="removeFromMenuButton far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
                           </div>
                       </div>
                       {{/each}}
