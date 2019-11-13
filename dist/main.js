@@ -1,3 +1,5 @@
+HandlebarsIntl.registerWith(Handlebars)
+
 let menu = new Menu()
 let user = new User("Yaniv", 2500)
 const renderer = new Renderer()

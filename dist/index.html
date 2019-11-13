@@ -16,6 +16,8 @@
     <div class="row mx-auto" style="width: 1000px;">
         <div class="col-6">
             <div class="mx-auto">
+                <div id="userName"></div>
+                <div id="userBMR"></div>
                 <input id="searchFood" type="text"><button id="searchButton"
                     class="btn btn-outline-dark">SEARCH</button>
             </div>
@@ -101,10 +103,10 @@
 
     <script id="nutrients-template" type="text/x-handlebars-template">
         <div class="Nutrients">
-            <div class="totalCal">Total Cal: {{cal}}</div>
-            <div class="totalProt">Total Prot: {{prot}}</div>
-            <div class="totalFat">Total Fat: {{fat}}</div>
-            <div class="totalSugars">Total Sugars: {{sugars}}</div>
+            <div class="totalCal">Total Cal: {{formatNumber cal}}</div>
+            <div class="totalProt">Total Prot: {{formatNumber prot}}</div>
+            <div class="totalFat">Total Fat: {{formatNumber fat}}</div>
+            <div class="totalSugars">Total Sugars: {{formatNumber sugars}}</div>
         </div>
     </script>
 
@@ -124,6 +126,7 @@
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="handlebars-intl/dist/handlebars-intl.min.js"></script>
 
     <script src="./models/Menu.js"></script>
     <script src="./models/User.js"></script>
