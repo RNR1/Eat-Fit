@@ -21,7 +21,7 @@
                 <input id="searchFood" type="text"><button id="searchButton"
                     class="btn btn-outline-dark">SEARCH</button>
             </div>
-        
+
             <select id="meals">
                 <option selected disabled>Select Meal</option>
                 <option value="Breakfast">Breakfast</option>
@@ -29,13 +29,13 @@
                 <option value="Snack">Snack</option>
                 <option value="Dinner">Dinner</option>
             </select>
-        
+
             <div id="food-container"></div>
         </div>
-    
+
         <div class="col-6">
             <div class="Menu">
-                <h1>Your Daily Menu</h1>
+                <h1 id="menuHeadline">Your Daily Menu</h1>
                 <div class="foods">
                     <h4>Breakfast:</h4>
                     <div class="Breakfast"></div>
@@ -70,7 +70,7 @@
 
 
     <script id="food-template" type="text/x-handlebars-template">
-        <div class="Food">
+        <div class="Food border border-dark rounded">
             <div class="foodName">{{name}}</div>
             <div class="foodServingUnit">Serving: {{servingUnit}}</div>
             <div class="foodCal">Cal: {{cal}}</div>
@@ -85,21 +85,28 @@
     </script>
 
     <script id="foodInMenu-template" type="text/x-handlebars-template">
-        {{#each menu}}
-        <div class="Food">
-            <div class="foodName">{{name}}</div>
-            <div class="foodServingUnit">Serving: {{servingUnit}}</div>
-            <div class="foodCal">Cal: {{cal}}</div>
-            <div class="foodprot">Protein: {{prot}}</div>
-            <div class="foodFat">Fat: {{fat}}</div>
-            <div class="foodSugras">Sugars: {{sugars}}</div>
-            <img class="foodIMG" src={{img}} >
-            <div class="foodbuttons">
-                <button class="removeFromMenuButton">Remove From Menu</button>
-            </div>
-        </div>
-        {{/each}}
-    </script>
+                      {{#each menu}}
+                      <div class="row border border-dark rounded">
+                          <div class="col-4">
+                              <div class="foodName">{{name}}</div>
+                              <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                              <img class="foodIMG" src={{img}} height="40px" >
+                          </div>
+                          <div class="col-4">
+                              <div class="foodCal">Cal: {{cal}}</div>
+                              <div class="foodprot">Protein: {{prot}}</div>
+                              <div class="foodFat">Fat: {{fat}}</div>
+                              <div class="foodSugras">Sugars: {{sugars}}</div>
+                          </div>
+                          <div class="col-4">
+                              <div class="foodbuttons">
+                                  <button class="removeFromMenuButton">Remove From Menu</button>
+                              </div>
+                          </div>
+                      </div>
+                      {{/each}}
+                  </script>
+    </div>
 
     <script id="nutrients-template" type="text/x-handlebars-template">
         <div class="Nutrients">
@@ -123,6 +130,16 @@
         </div>
 
     </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>

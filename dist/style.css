@@ -18,18 +18,7 @@ margin-top: 100px;
     width: 200px;
 }
 
-/* .Food{
-    width: 500px;
-    height: 140px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 20px;
-} */
+#menuHeadline{
+    color: #9EB038;
 
-.foodIMG{
-    position:absolute;
-    left: 315px;
-    top: 100px;
-    max-width: 120px;
-    max-height: 120px;
 }
