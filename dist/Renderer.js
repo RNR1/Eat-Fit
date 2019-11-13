@@ -10,10 +10,10 @@ class Renderer {
     }
 
     renderMenu(menu) {
-        const source = $('#menu-template').html();
+        const source = $('#foodInMenu-template').html();
         const template = Handlebars.compile(source);
-        let newHTML = template({ menu });
-        $("#menu-container").empty().append(newHTML);
+        let newHTML = template( menu );
+        $("#breakfast").empty().append(newHTML);
 
     }
 }
