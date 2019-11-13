@@ -23,8 +23,16 @@ router.get('/food/:foodName', async (req, res) => {
 		headers: headers,
 		json: true
 	}
-
-	let items = await requestPromise(getItems)
+	let items
+	try {
+	items = await requestPromise(getItems)
+	if (items.common.length === 0) {
+		throw new error("food not found")	
+	}
+	}
+	catch(err) {
+		return res.send(err)
+	}
 
 	const getNutrients = {
 		method: 'POST',

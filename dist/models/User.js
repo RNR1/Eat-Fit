@@ -8,7 +8,12 @@ class User {
     }
 
     async getFood(foodName) {
+        try {
         this.foodData = await $.get(`/food/${foodName}`)
+        }
+        catch (err) {
+            return err
+        }
     }
 
     async consumeFood(foodId,meal) {
