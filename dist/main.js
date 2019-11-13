@@ -5,7 +5,7 @@ let user = new User("5dcc78f839702620ec3134a2","Yaniv Sultan", 1800)
 const renderer = new Renderer()
 renderer.renderUserDetails()
 
-$("#searchButton").on("click", async function() {
+const search = async () => {
     let input = $("#searchFood").val()
 	if (input === "") {
 		return
@@ -15,13 +15,9 @@ $("#searchButton").on("click", async function() {
 		return
 	}
 	renderer.renderFood(user.foodData)
-})
+}
 
-$("#food-container").on("click", ".addToMenuButton", function() {
-	let foodName = $(this)
-		.closest(".Food")
-		.find(".foodName")
-		.text()
+const addToMenu = foodName => {
 	let meal = $("#meals").val()
 	if (!meal) { return notifications("mustChooseMealAlert") }
 	if (user.foodData.name === foodName) {
@@ -30,14 +26,13 @@ $("#food-container").on("click", ".addToMenuButton", function() {
 		renderer.renderFood(user.foodData)
 		renderer.renderNutrients(menu.nutrients)
         notifications("foodAddedAlert")
-		//Show message to user that it`s added
 	} else {
 		console.log("Problem, Big One.")
     }
     if(user.bmr < menu.nutrients.cal) {
         console.log("Notice , you have reached your daily BMR")
     }
-})
+}
 
 const save = async () => {
     let day = $("#days").val()
@@ -55,7 +50,7 @@ const remove = (foodId, meal) => {
     notifications("foodDeletedAlert")
 }
 
-const notifications = function(className){
+const notifications = className => {
     $(`.${className}`).toggle()
     setTimeout(()=> $(`.${className}`).toggle(),2000)
 }

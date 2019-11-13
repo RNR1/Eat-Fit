@@ -30,7 +30,7 @@
                     aria-label="Recipient's username" aria-describedby="button-addon2">
                 <div class="input-group-append">
                     <button id="searchButton" class="btn btn-outline-secondary" type="button"
-                        id="button-addon2">Search</button>
+                        id="button-addon2" onclick="search()">Search</button>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
                     <div class="foodSugras">Sugars: {{sugars}}</div>
                 </div>
                 <div class="col-3">
-                        <i class="addToMenuButton fas fa-plus"></i>
+                        <i class="addToMenuButton fas fa-plus" onclick="addToMenu(`{{name}}`)"></i>
                 </div>
                 </div>
             </div>
