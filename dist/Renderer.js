@@ -9,9 +9,6 @@ class Renderer {
     renderMenu(menu, container) {
         const source = $('#foodInMenu-template').html();
         const template = Handlebars.compile(source);
-        try {
-        menu[0].meal = container
-        } catch(err) {}
         let newHTML = template({ menu });
         $(`.${container}`).empty().append(newHTML);
     }
@@ -28,9 +25,13 @@ class Renderer {
         $("#userBMR").append(`<h3> Your BMR is ${user.bmr} </h3`)
     }
 
-    renderDailyMenu(dailyMenu){
+    renderDailyMenu(dailyMenu, userId){
         const source = $('#dailyMenu-template').html();
         const template = Handlebars.compile(source);
+        try {
+            dailyMenu.userId = userId
+            console.log(dailyMenu)
+        } catch(err) {}
         let newHTML = template(dailyMenu);
         $("#container").empty().append(newHTML);
     }

@@ -44,7 +44,7 @@ router.get("/food/:foodName", async (req, res) => {
 
 	items = await requestPromise(getNutrients)
 	items = items.foods[0]
-	let food = new Food({
+	let food = {
 		name: items.food_name,
 		servingUnit: `${items.serving_qty} ${items.serving_unit}`,
 		cal: items.nf_calories || 0,
@@ -53,7 +53,7 @@ router.get("/food/:foodName", async (req, res) => {
 		sugars: items.nf_sugars || 0,
 		img: items.photo.thumb,
 		consumed: false
-	})
+	}
 
 	res.send(food)
 })
@@ -63,7 +63,6 @@ router.get("/menu/:userId", async (req, res) => {
 	let today = moment().format("dddd")
 	let userId = req.params.userId
 	let user = await User.findById(userId).populate('menu')
-	console.log(user)
 	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
 	res.send(dailyMenu)
 })
@@ -72,7 +71,6 @@ router.post("/menu", async (req, res) => {
 	// Save current daily menu to DB, to be executed by Menu.save().
 	// Body: an Object similar to menu schema.
 	menu = new Menu({ ...req.body })
-	console.log(menu)
 	await menu.save()
 	res.send(menu)
 })
@@ -88,20 +86,46 @@ router.post("/user/menu", async (req, res) => {
 	res.send(user)
 })
 
+router.post("/food/", (req, res) => {
+	let food = req.body
+	food = new Food({
+		name: food.name,
+		meal: food.meal,
+		servingUnit: food.servingUnit,
+		cal: food.cal,
+		fat: food.fat,
+		prot: food.prot,
+		sugars: food.sugars,
+		img: food.img,
+		consumed: false
+	})
+	res.send(food)
+})
+
 router.put("/consume/", async (req, res) => {
 	// Mark selected food item as consumed according to the current daily menu.
 	let userId = req.body.userId
-	let meal = req.body.meal
+	let meal = req.body.meal.toLowerCase()
 	let foodId = req.body.foodId
+	let checked = req.body.checked
+	// console.log(checked)
 	let today = moment().format("dddd")
 
 	let user = await User.findById(userId).populate('menu')
-	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
-	let food = dailyMenu[meal].foods.find(f => f.id === foodId)
-	food.consumed = !food.consumed
+	let dailyMenu = user.menu
+		.map(m => m = m.toObject())
+		.findIndex(m => m.dayInWeek === today)
+		
+	let food = user.menu[dailyMenu][meal].findIndex(f => f._id === foodId)
+	let consumed = user.menu[dailyMenu][meal][food].consumed
+	consumed = !consumed	
+	// console.log(user.menu[dailyMenu][meal][food])
+	// console.log(food.consumed)
+	// food.consumed = checked
+	
 	await user.save()
-
-	res.send(food)
+	user.menu.forEach(m => console.log(m.toObject()))
+	res.send(dailyMenu)
 })
 
 router.delete("/menu/", async (req, res) => {

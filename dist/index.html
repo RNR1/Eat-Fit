@@ -17,7 +17,7 @@
     <div id="container"></div>
 
 
-    < <script id="addNewMenu-template" type="text/x-handlebars-template">
+    <script id="addNewMenu-template" type="text/x-handlebars-template">
 
         <div class="welcomeUser">
                 <div id="userName" class="greenColor"></div>
@@ -183,35 +183,35 @@
     <script id="dailyMenu-template" type="text/x-handlebars-template">
 
         <div class="dailyMenu row mx-auto">
-            <div class="col-4"></div>
+            <div class="col-3"></div>
             <div class="col-6 align-center">
                     <h1 class="greenColor text-center">Your Daily Menu</h1>
                     
                 <h2 class="greenColor dailyMenuSubHeadline">Breakfast:</h2>
                 {{#each breakfast}}
-                    <div class="foodToEat">
-                        <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Lunch:</h2>
                 {{#each lunch}}
-                    <div class="foodToEat">
-                        <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Snack:</h2>
                 {{#each snack}}
-                <div class="foodToEat">
-                        <input type="checkbox"> 
+                <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                     {{servingUnit}} {{name}}
                 </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Dinner:</h2>
                 {{#each dinner}}                       
-                    <div class="foodToEat">
-                            <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
@@ -219,7 +219,7 @@
                 <button id="addnewMenu" class="btn btn-outline-secondary text-center" type="button"
                  onclick="renderer.renderNewMenu()">Add New Menu</button>
             </div>
-            <div class="col-2"></div>
+            <div class="col-3"></div>
                 
         </div>
     </script>
