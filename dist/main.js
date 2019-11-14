@@ -3,7 +3,6 @@ HandlebarsIntl.registerWith(Handlebars)
 let menu = new Menu()
 let user = new User("5dccbceacceeda07c023960d", "Dana Sultan", 1800)
 const renderer = new Renderer()
-renderer.renderUserDetails()
 
 const search = async () => {
     let input = $("#searchFood").val()

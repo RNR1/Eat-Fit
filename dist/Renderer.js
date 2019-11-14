@@ -40,6 +40,7 @@ class Renderer {
         const template = Handlebars.compile(source);
         let newHTML = template({});
         $("#container").empty().append(newHTML);
+        renderer.renderUserDetails()
     }
 
     renderRegister(){

@@ -85,6 +85,9 @@
 #addnewMenu{
     margin-top: 30px;
 }
+#totals{
+    margin-bottom: 20px;
+}
 
 #container{
     padding-bottom: 30px;
@@ -92,4 +95,8 @@
 
 #addnewMenu{
 margin: 20px;
+}
+
+#searchBox{
+    margin-bottom: 30vh;
 }
