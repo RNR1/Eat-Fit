@@ -34,4 +34,11 @@ class Renderer {
         let newHTML = template(dailyMenuObj);
         $("#todaysMenu").empty().append(newHTML);
     }
+
+    renderNewMenu(){
+        const source = $('#addNewMenu-template').html();
+        const template = Handlebars.compile(source);
+        let newHTML = template({});
+        $("#container").empty().append(newHTML);
+    }
 }
