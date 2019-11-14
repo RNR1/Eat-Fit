@@ -1,7 +1,7 @@
 HandlebarsIntl.registerWith(Handlebars)
 
 let menu = new Menu()
-let user = new User("5dccb70cb321b90058e8815e","Dana Sultan", 1800)
+let user = new User("5dccbb2dff5b3b43203d61ca","Shoshana Sinai", 1800)
 const renderer = new Renderer()
 renderer.renderUserDetails()
 
