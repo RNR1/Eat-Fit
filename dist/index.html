@@ -189,30 +189,47 @@
                     
                 <h2 class="greenColor dailyMenuSubHeadline">Breakfast:</h2>
                 {{#each breakfast}}
-                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
-                        <input type="checkbox" class="checkbox"> 
-                        {{servingUnit}} {{name}}
+                    <div class="foodToEat">
+                        
+                        <i class="fas fa-check" onclick="consume(`{{_id}}`, `{{meal}}`)"></i>                        
+                        {{#if consumed}}
+                        <span class=complete>{{servingUnit}} {{name}}</span>
+                        {{else}}
+                        <span>{{servingUnit}} {{name}}</span>
+                        {{/if}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Lunch:</h2>
                 {{#each lunch}}
-                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
-                        <input type="checkbox" class="checkbox"> 
-                        {{servingUnit}} {{name}}
+                    <div class="foodToEat">
+                        <i class="fas fa-check" onclick="consume(`{{_id}}`, `{{meal}}`)"></i>                        
+                        {{#if consumed}}
+                        <span class=complete>{{servingUnit}} {{name}}</span>
+                        {{else}}
+                        <span>{{servingUnit}} {{name}}</span>
+                        {{/if}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Snack:</h2>
                 {{#each snack}}
-                <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
-                        <input type="checkbox" class="checkbox"> 
-                    {{servingUnit}} {{name}}
+                <div class="foodToEat">
+                    <i class="fas fa-check" onclick="consume(`{{_id}}`, `{{meal}}`)"></i>                        
+                    {{#if consumed}}
+                    <span class=complete>{{servingUnit}} {{name}}</span>
+                    {{else}}
+                    <span>{{servingUnit}} {{name}}</span>
+                    {{/if}}
                 </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Dinner:</h2>
                 {{#each dinner}}                       
-                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
-                        <input type="checkbox" class="checkbox"> 
-                        {{servingUnit}} {{name}}
+                    <div class="foodToEat">
+                        <i class="fas fa-check" onclick="consume(`{{_id}}`, `{{meal}}`)"></i>                        
+                        {{#if consumed}}
+                        <span class=complete>{{servingUnit}} {{name}}</span>
+                        {{else}}
+                        <span>{{servingUnit}} {{name}}</span>
+                        {{/if}}
                     </div>
                 {{/each}}
                 

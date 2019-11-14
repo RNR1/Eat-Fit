@@ -109,6 +109,15 @@ margin: 20px;
 }
 
 
+.complete {
+    text-decoration-line: line-through
+}
+
+.fa-check {
+    cursor: pointer;
+}
+
+
 @-webkit-keyframes scale-in-ver-top {
     0% {
       -webkit-transform: scaleY(0);
@@ -141,4 +150,3 @@ margin: 20px;
       opacity: 1;
     }
   }
-  

@@ -20,11 +20,11 @@ class User {
 		this.foodData = data
 	}
 
-	async consumeFood(foodId, meal, checked) {
+	async consumeFood(foodId, meal) {
 		let updated = await $.ajax({
 			url: `/consume`,
 			type: "PUT",
-			data: { userId: this.id, foodId: foodId, meal: meal, checked: checked },
+			data: { menuId: this.dailyMenu._id, foodId: foodId, meal: meal },
 		})
 		user.dailyMenu = updated
 		console.log(user.dailyMenu)
@@ -45,21 +45,6 @@ class User {
 				menuId: menuId
 			})
 		// }
-	}
-
-	async removeMenu() {
-		await $.ajax({
-			url: `/menu`,
-			type: "DELETE",
-			data: {
-				userId: this.userId,
-				selectedDay: this.dailyMenu.dayInWeek
-			},
-			success: function(result) {
-				this.dailyMenu = []
-				console.log("Menu Deleted")
-			}
-		})
 	}
 
 	async removeMenu() {

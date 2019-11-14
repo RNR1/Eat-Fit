@@ -49,12 +49,11 @@ const remove = (foodId, meal) => {
     renderer.renderNutrients(menu.nutrients)
     notifications("foodDeletedAlert")
 }
+const consume = async (foodId, meal) => {
+	await user.consumeFood(foodId, meal)
+	renderer.renderDailyMenu(user.dailyMenu)
+}
 
-$("#container").on('change', ".checkbox", async function() {
-	let checked = this.checked
-	let data = $(this).closest('.foodToEat').data()
-	await user.consumeFood(data.foodid, data.meal, checked)
-})
 
 const notifications = className => {
     $(`.${className}`).toggle()
@@ -69,12 +68,6 @@ onclick="renderer.renderNewMenu()">Add New Menu</button>`)
         return
 	}
     renderer.renderDailyMenu(user.dailyMenu)
-	$(".checkbox").each(function() {
-		let data = $(this).closest(".foodToEat").data()
-		let meal = data.meal.toLowerCase()
-		let foodId = data.foodid
-		// this.checked = user.dailyMenu[meal].find(f => f._id === foodId).consumed			
-	})
 }
 loadPage()
 	

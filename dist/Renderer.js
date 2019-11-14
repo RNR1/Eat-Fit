@@ -30,7 +30,6 @@ class Renderer {
         const template = Handlebars.compile(source);
         try {
             dailyMenu.userId = userId
-            console.log(dailyMenu)
         } catch(err) {}
         let newHTML = template(dailyMenu);
         $("#container").empty().append(newHTML);
