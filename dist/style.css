@@ -100,3 +100,11 @@ margin: 20px;
 #searchBox{
     margin-bottom: 30vh;
 }
+
+.complete {
+    text-decoration-line: line-through
+}
+
+.fa-check {
+    cursor: pointer;
+}
