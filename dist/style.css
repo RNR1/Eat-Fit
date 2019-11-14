@@ -80,9 +80,16 @@
  }
 
 .dailyMenu h1{
-    margin-bottom: 60px;
+    margin-bottom: 15px;
 }
 #addnewMenu{
     margin-top: 30px;
 }
 
+#container{
+    padding-bottom: 30px;
+}
+
+#addnewMenu{
+margin: 20px;
+}
