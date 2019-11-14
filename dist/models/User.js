@@ -32,7 +32,7 @@ class User {
 	}
 
 	async getDailyMenu() {
-		this.dailyMenu = await $.get(`/menu/${this.userId}`)
+		this.dailyMenu = await $.get(`/menu/${this.id}`)
 	}
 
 	async createMenu(menuId) {

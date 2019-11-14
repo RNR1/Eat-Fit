@@ -28,11 +28,11 @@ class Renderer {
         $("#userBMR").append(`<h3> Your BMR is ${user.bmr} </h3`)
     }
 
-    renderDailyMenu(dailyMenuObj){
+    renderDailyMenu(dailyMenu){
         const source = $('#dailyMenu-template').html();
         const template = Handlebars.compile(source);
-        let newHTML = template(dailyMenuObj);
-        $("#todaysMenu").empty().append(newHTML);
+        let newHTML = template(dailyMenu);
+        $("#container").empty().append(newHTML);
     }
 
     renderNewMenu(){
