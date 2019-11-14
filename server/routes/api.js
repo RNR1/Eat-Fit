@@ -62,7 +62,8 @@ router.get("/menu/:userId", async (req, res) => {
 	// Get daily menu from DB, to be fetched on pageLoad()
 	let today = moment().format("dddd")
 	let userId = req.params.userId
-	let user = await User.findById(userId)
+	let user = await User.findById(userId).populate('menu')
+	console.log(user)
 	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
 	res.send(dailyMenu)
 })
@@ -80,7 +81,7 @@ router.post("/user/menu", async (req, res) => {
 	// Save user’s current daily menu to DB, to be executed by User.createMenu().
 	// Body: an Object contains userId and menuId .
 
-	let user = await User.findById(req.body.userId)
+	let user = await User.findById(req.body.userId).populate('menu')
 	let menu = await Menu.findById(req.body.menuId)
 	user.menu.push(menu)
 	await user.save()
@@ -94,7 +95,7 @@ router.put("/consume/", async (req, res) => {
 	let foodId = req.body.foodId
 	let today = moment().format("dddd")
 
-	let user = await User.findById(userId)
+	let user = await User.findById(userId).populate('menu')
 	let dailyMenu = user.menu.find(m => m.dayInWeek === today)
 	let food = dailyMenu[meal].foods.find(f => f.id === foodId)
 	food.consumed = !food.consumed
@@ -108,7 +109,7 @@ router.delete("/menu/", async (req, res) => {
 	let userId = req.body.userId
 	let selectedDay = req.body.selectedDay
 
-	let user = await User.findById(userId)
+	let user = await User.findById(userId).populate('menu')
 	let menu = user.menu.findIndex(m => m.dayInWeek === selectedDay)
 	user.menu.splice(menu, 1)
 	await user.save()
@@ -118,7 +119,7 @@ router.delete("/menu/", async (req, res) => {
 router.post("/login", async (req, res) => {
 	let userId = req.body.userId
 
-	let user = await User.findById(userId)
+	let user = await User.findById(userId).populate('menu')
 	res.send(user)
 })
 
