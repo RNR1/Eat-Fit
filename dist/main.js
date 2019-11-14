@@ -1,7 +1,7 @@
 HandlebarsIntl.registerWith(Handlebars)
 
 let menu = new Menu()
-let user = new User("5dccb70cb321b90058e8815e","Dana Sultan", 1800)
+let user = new User("5dccc91055055f235e95eeb1","John Doe", 1800)
 const renderer = new Renderer()
 renderer.renderUserDetails()
 
@@ -17,11 +17,12 @@ const search = async () => {
 	renderer.renderFood(user.foodData)
 }
 
-const addToMenu = foodName => {
+const addToMenu = async foodName => {
 	let meal = $("#meals").val()
 	if (!meal) { return notifications("mustChooseMealAlert") }
+	user.foodData.meal = meal
 	if (user.foodData.name === foodName) {
-        menu.addToMenu(user.foodData)
+        await menu.addToMenu(user.foodData)
 		renderer.renderMenu(menu[meal], meal)
 		renderer.renderFood(user.foodData)
 		renderer.renderNutrients(menu.nutrients)
@@ -50,6 +51,12 @@ const remove = (foodId, meal) => {
     notifications("foodDeletedAlert")
 }
 
+$("#container").on('change', ".checkbox", async function() {
+	let checked = this.checked
+	let data = $(this).closest('.foodToEat').data()
+	await user.consumeFood(data.foodid, data.meal, checked)
+})
+
 const notifications = className => {
     $(`.${className}`).toggle()
     setTimeout(()=> $(`.${className}`).toggle(),2000)
@@ -58,7 +65,7 @@ const notifications = className => {
 
 const loadPage = async function () {
 	await user.getDailyMenu()
-	renderer.renderDailyMenu(user.dailyMenu)
+	renderer.renderDailyMenu(user.dailyMenu, user.id)
 }
 loadPage()
 

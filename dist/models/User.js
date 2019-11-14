@@ -20,15 +20,14 @@ class User {
 		this.foodData = data
 	}
 
-	async consumeFood(foodId, meal) {
-		await $.ajax({
+	async consumeFood(foodId, meal, checked) {
+		let updated = await $.ajax({
 			url: `/consume`,
 			type: "PUT",
-			data: { userId: this.id, foodId: foodId, meal: meal },
-			success: function(result) {
-				console.log("Food Consumed")
-			}
+			data: { userId: this.id, foodId: foodId, meal: meal, checked: checked },
 		})
+		user.dailyMenu = updated
+		// this.dailyMenu = updated.menu
 	}
 
 	async getDailyMenu() {

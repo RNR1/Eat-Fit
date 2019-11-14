@@ -10,8 +10,9 @@ class Menu {
 
     }
 
-    addToMenu(food) {
+    async addToMenu(food) {
         let meal = $("#meals").val()
+        food = await $.post('/food/', food)
         this[meal].push(food)
 
         //If we had nutrients as object I could make it in 1 line :(

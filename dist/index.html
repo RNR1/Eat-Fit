@@ -163,29 +163,29 @@
                     
                 <h2 class="greenColor dailyMenuSubHeadline">Breakfast:</h2>
                 {{#each breakfast}}
-                    <div class="foodToEat">
-                        <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Lunch:</h2>
                 {{#each lunch}}
-                    <div class="foodToEat">
-                        <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="check" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Snack:</h2>
                 {{#each snack}}
-                <div class="foodToEat">
-                        <input type="checkbox"> 
+                <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="check"> 
                     {{servingUnit}} {{name}}
                 </div>
                 {{/each}}
                 <h2 class="greenColor dailyMenuSubHeadline">Dinner:</h2>
                 {{#each dinner}}                       
-                    <div class="foodToEat">
-                            <input type="checkbox"> 
+                    <div class="foodToEat" data-foodid={{_id}} data-meal={{meal}}>
+                        <input type="checkbox" class="checkbox"> 
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
