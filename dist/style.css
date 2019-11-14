@@ -16,7 +16,9 @@
     display: block;
     width: 200px;
 }
-
+.dailyMenuSubHeadline{
+    margin-top: 20px;
+}
 .greenColor{
     color: #9EB038;
 }
@@ -74,4 +76,7 @@
      display: none;
  }
 
+.dailyMenu h1{
+    margin-bottom: 60px;
+}
 

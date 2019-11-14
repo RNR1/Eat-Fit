@@ -24,8 +24,9 @@
                 <div id="userBMR"></div>
             </div>
         
-            <div class="row container">
+            <div class="row">
                 <div class="border border-dark rounded text-center col-5 p-3 container" style="margin-bottom: 45vh;">
+
                     <h1 class="greenColor mb-04">Search Food</h1>
                     <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
                     <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
@@ -88,6 +89,8 @@
                     <div class="menuSavedAlert alert alert-success" role="alert">Menu Saved</div>
                     <div class="mustChooseDayAlert alert alert-warning" role="alert">You must choose day in week.</div>
                     <button id="saveMenuButton" class="btn btn-outline-success" onclick="save()">Save Menu</button>
+                    <button id="addnewMenu" class="btn btn-outline-secondary text-center" type="button"
+                    onclick="loadPage()">Daily Menu</button>
                 </div>
         
             </div>
@@ -154,29 +157,41 @@
 
     <script id="dailyMenu-template" type="text/x-handlebars-template">
         <div class="dailyMenu row mx-auto">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-4"></div>
+            <div class="col-6 align-center">
+                    <h1 class="greenColor text-center">Your Daily Menu</h1>
                     
-                <h2 class="greenColor">Breakfast:</h2>
+                <h2 class="greenColor dailyMenuSubHeadline">Breakfast:</h2>
                 {{#each breakfast}}
-                    <div class="foodName">{{name}}</div>
-                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                    <div class="foodToEat">
+                        <input type="checkbox"> 
+                        {{servingUnit}} {{name}}
+                    </div>
                 {{/each}}
-                <h2 class="greenColor">Lunch:</h2>
+                <h2 class="greenColor dailyMenuSubHeadline">Lunch:</h2>
                 {{#each lunch}}
-                    <div class="foodName">{{name}}</div>
-                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                    <div class="foodToEat">
+                        <input type="checkbox"> 
+                        {{servingUnit}} {{name}}
+                    </div>
                 {{/each}}
-                <h2 class="greenColor">Snack:</h2>
+                <h2 class="greenColor dailyMenuSubHeadline">Snack:</h2>
                 {{#each snack}}
-                    <div class="foodName">{{name}}</div>
-                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                <div class="foodToEat">
+                        <input type="checkbox"> 
+                    {{servingUnit}} {{name}}
+                </div>
                 {{/each}}
-                <h2 class="greenColor">Dinner:</h2>
-                {{#each dinner}}                           
-                    <div class="foodName">{{name}}</div>
-                    <div class="foodServingUnit">Serving: {{servingUnit}}</div>
+                <h2 class="greenColor dailyMenuSubHeadline">Dinner:</h2>
+                {{#each dinner}}                       
+                    <div class="foodToEat">
+                            <input type="checkbox"> 
+                        {{servingUnit}} {{name}}
+                    </div>
                 {{/each}}
+
+                <button id="addnewMenu" class="btn btn-outline-secondary text-center" type="button"
+                 onclick="renderer.renderNewMenu()">Add New Menu</button>
             </div>
             <div class="col-2"></div>
                 
