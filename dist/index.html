@@ -17,16 +17,15 @@
     <div id="container"></div>
 
 
-    <script id="addNewMenu-template" type="text/x-handlebars-template">
+    < <script id="addNewMenu-template" type="text/x-handlebars-template">
 
         <div class="welcomeUser">
                 <div id="userName" class="greenColor"></div>
                 <div id="userBMR"></div>
             </div>
         
-            <div class="row">
-                <div class="border border-dark rounded text-center col-5 p-3 container" style="margin-bottom: 45vh;">
-
+            <div class="row mx-auto" style="width: 1200px;">
+                <div id="searchBox" class="border border-dark rounded text-center col-5 p-3">
                     <h1 class="greenColor mb-04">Search Food</h1>
                     <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
                     <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
@@ -89,14 +88,15 @@
                     <div class="menuSavedAlert alert alert-success" role="alert">Menu Saved</div>
                     <div class="mustChooseDayAlert alert alert-warning" role="alert">You must choose day in week.</div>
                     <button id="saveMenuButton" class="btn btn-outline-success" onclick="save()">Save Menu</button>
-                    <button id="addnewMenu" class="btn btn-outline-secondary text-center" type="button"
-                    onclick="loadPage()">Daily Menu</button>
+                    <button id="dailyMenu" class="btn btn-outline-secondary text-center" type="button"
+                    onclick="renderer.renderDailyMenu()">Daily Menu</button>
                 </div>
         
             </div>
 
 
     </script>
+
 
 
 
@@ -123,8 +123,33 @@
 
 
 
+    <script id="register-template" type="text/x-handlebars-template">
+        <div class="RegisterBox row mx-auto text-center">
+        <div class="col-4">
+            <input type="text" placeholder="Your First Name">
+            <input type="text" placeholder="Your Last Name">
+            <input type="mail" placeholder="Your E-mail">
+            <input type="password" placeholder="Your Password">
+        </div>
+        <div class="col-4">
+                <input type="text" placeholder="Your height">
+                <input type="text" placeholder="Your weight">
+                <input type="text" placeholder="Your Age">
+                <select>
+                        <option selected disabled>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+            </div>
+        </div>
+            <button id="registerButton" class="btn btn-outline-secondary text-center " type="button"
+            onclick="renderer.renderRegister()">Register</button>
+
+    </script>
+
+
     <script id="foodInMenu-template" type="text/x-handlebars-template">
-                      {{#each menu}}
+                {{#each menu}}
                       <div class="foodInMenu row border border-dark rounded">
                           <div data-id="{{_id}}" class="foodData col-4">
                               <div class="foodName">{{name}}</div>
@@ -142,9 +167,9 @@
                                 <i class="removeFromMenuButton far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
                           </div>
                       </div>
-                      {{/each}}
-                  </script>
-    </div>
+                 {{/each}}
+    </script>
+
 
     <script id="nutrients-template" type="text/x-handlebars-template">
         <div class="Nutrients">
@@ -156,6 +181,7 @@
     </script>
 
     <script id="dailyMenu-template" type="text/x-handlebars-template">
+
         <div class="dailyMenu row mx-auto">
             <div class="col-4"></div>
             <div class="col-6 align-center">
@@ -189,7 +215,7 @@
                         {{servingUnit}} {{name}}
                     </div>
                 {{/each}}
-
+                
                 <button id="addnewMenu" class="btn btn-outline-secondary text-center" type="button"
                  onclick="renderer.renderNewMenu()">Add New Menu</button>
             </div>
