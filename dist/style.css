@@ -28,13 +28,13 @@
 
 .addToMenuButton{
     cursor: pointer;
-    font-size: 4em;
+    font-size: 5vw;
     color: #9EB038; 
     margin-top: 25px;
 }
 .removeFromMenuButton{
     cursor: pointer;
-    font-size: 3.5em;
+    font-size: 5vw;
     color: red;
     margin-top: 25px;
 }
@@ -44,6 +44,7 @@
 }
 .foodInMenu{
     margin: 10px;
+    padding:5px;
     
 }
 
