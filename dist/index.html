@@ -25,7 +25,7 @@
             </div>
         
             <div class="row " >
-                <div id="searchBox" class="border border-dark rounded text-center col-5 p-3">
+                <div id="searchBox" class="shadow border border-dark rounded text-center col-5 p-3">
                     <h1 class="greenColor mb-04">Search Food</h1>
                     <div class="mustChooseMealAlert alert alert-warning" role="alert">You must choose meal.</div>
                     <div class="foodAddedAlert alert alert-success" role="alert">Food added to menu.</div>
@@ -150,7 +150,7 @@
 
     <script id="foodInMenu-template" type="text/x-handlebars-template">
                 {{#each menu}}
-                      <div class="foodInMenu row border border-dark rounded">
+                      <div class="foodInMenu shadow row border border-dark rounded">
                           <div data-id="{{_id}}" class="foodData col-4">
                               <div class="foodName">{{name}}</div>
                               <div class="foodServingUnit">Serving: {{servingUnit}}</div>
@@ -184,7 +184,7 @@
 
         <div class="dailyMenu row mx-auto">
             <div class="col-3"></div>
-            <div class="col-6 align-center border border-dark rounded">
+            <div class="col-6 shadow align-center border border-dark rounded">
                     <h1 class="greenColor text-center">Your Daily Menu</h1>
                     
                 <h2 class="greenColor dailyMenuSubHeadline">Breakfast:</h2>
