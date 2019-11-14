@@ -27,6 +27,7 @@ class User {
 			data: { userId: this.id, foodId: foodId, meal: meal, checked: checked },
 		})
 		user.dailyMenu = updated
+		console.log(user.dailyMenu)
 		// this.dailyMenu = updated.menu
 	}
 

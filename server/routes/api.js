@@ -108,16 +108,23 @@ router.put("/consume/", async (req, res) => {
 	let meal = req.body.meal.toLowerCase()
 	let foodId = req.body.foodId
 	let checked = req.body.checked
+	// console.log(checked)
 	let today = moment().format("dddd")
 
 	let user = await User.findById(userId).populate('menu')
 	let dailyMenu = user.menu
 		.map(m => m = m.toObject())
-		.find(m => m.dayInWeek === today)
-	let food = dailyMenu[meal].find(f => f._id === foodId)
-	food.consumed = checked
+		.findIndex(m => m.dayInWeek === today)
+		
+	let food = user.menu[dailyMenu][meal].findIndex(f => f._id === foodId)
+	let consumed = user.menu[dailyMenu][meal][food].consumed
+	consumed = !consumed	
+	// console.log(user.menu[dailyMenu][meal][food])
+	// console.log(food.consumed)
+	// food.consumed = checked
 	
 	await user.save()
+	user.menu.forEach(m => console.log(m.toObject()))
 	res.send(dailyMenu)
 })
 

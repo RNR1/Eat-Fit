@@ -60,7 +60,6 @@ const notifications = className => {
     $(`.${className}`).toggle()
     setTimeout(() => $(`.${className}`).toggle(), 2000)
 }
-// //for the second part of the project. comment it out for now.
 
 const loadPage = async function () {
     await user.getDailyMenu()
@@ -68,11 +67,17 @@ const loadPage = async function () {
         $("#container").append(`<h2 class="greenColor">You have no menu for today, click on this button to create it.</h2><button id="addnewMenu" class="btn btn-outline-secondary" type="button"
 onclick="renderer.renderNewMenu()">Add New Menu</button>`)
         return
-    }
+	}
     renderer.renderDailyMenu(user.dailyMenu)
+	$(".checkbox").each(function() {
+		let data = $(this).closest(".foodToEat").data()
+		let meal = data.meal.toLowerCase()
+		let foodId = data.foodid
+		// this.checked = user.dailyMenu[meal].find(f => f._id === foodId).consumed			
+	})
 }
-
 loadPage()
+	
 
 
 
