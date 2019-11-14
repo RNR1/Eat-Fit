@@ -41,4 +41,11 @@ class Renderer {
         let newHTML = template({});
         $("#container").empty().append(newHTML);
     }
+
+    renderRegister(){
+        const source = $('#register-template').html();
+        const template = Handlebars.compile(source);
+        let newHTML = template({});
+        $("#container").empty().append(newHTML);
+    }
 }

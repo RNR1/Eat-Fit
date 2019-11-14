@@ -123,8 +123,33 @@
 
 
 
+    <script id="register-template" type="text/x-handlebars-template">
+        <div class="RegisterBox row mx-auto text-center">
+        <div class="col-4">
+            <input type="text" placeholder="Your First Name">
+            <input type="text" placeholder="Your Last Name">
+            <input type="mail" placeholder="Your E-mail">
+            <input type="password" placeholder="Your Password">
+        </div>
+        <div class="col-4">
+                <input type="text" placeholder="Your height">
+                <input type="text" placeholder="Your weight">
+                <input type="text" placeholder="Your Age">
+                <select>
+                        <option selected disabled>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+            </div>
+        </div>
+            <button id="registerButton" class="btn btn-outline-secondary text-center " type="button"
+            onclick="renderer.renderRegister()">Register</button>
+
+    </script>
+
+
     <script id="foodInMenu-template" type="text/x-handlebars-template">
-                      {{#each menu}}
+                {{#each menu}}
                       <div class="foodInMenu row border border-dark rounded">
                           <div data-id="{{_id}}" class="foodData col-4">
                               <div class="foodName">{{name}}</div>
@@ -142,9 +167,9 @@
                                 <i class="removeFromMenuButton far fa-trash-alt" onclick="remove(`{{_id}}`, `{{meal}}`)"></i>
                           </div>
                       </div>
-                      {{/each}}
-                  </script>
-    </div>
+                 {{/each}}
+    </script>
+
 
     <script id="nutrients-template" type="text/x-handlebars-template">
         <div class="Nutrients">
