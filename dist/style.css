@@ -56,9 +56,9 @@
     margin-top: 50px;
 }
 
- #meals{
+#meals {
     width: 100%;
- }
+}
 
  #days{
     width: 100%;
@@ -74,3 +74,6 @@
      display: none;
  }
 
+ .border {
+    border-bottom: 45vh;
+}
