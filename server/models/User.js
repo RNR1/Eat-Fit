@@ -12,7 +12,7 @@ const userSchema = new Schema({
     age:{ type: Number, required: true },
     gender:{ type: String, required: true },
     BMR:{ type: Number, required: true },
-    menu: [menuSchema]
+    menu: [ {type: Schema.Types.ObjectId, ref: 'Menu'} ]
 })
 
 const User = mongoose.model('User', userSchema)
