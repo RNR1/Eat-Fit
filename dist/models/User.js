@@ -26,8 +26,8 @@ class User {
 			type: "PUT",
 			data: { menuId: this.dailyMenu._id, foodId: foodId, meal: meal },
 		})
-		user.dailyMenu = updated
 		console.log(user.dailyMenu)
+		user.dailyMenu = updated
 		// this.dailyMenu = updated.menu
 	}
 

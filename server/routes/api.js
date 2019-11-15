@@ -111,8 +111,7 @@ router.put("/consume/", async (req, res) => {
 	try {
 		menu = await Menu.findById(menuId)
 	} catch(err) {}
-	let consumed = menu[meal].find(f => f._id === foodId).consumed	
-	consumed = !consumed
+	menu[meal].find(f => f._id === foodId).consumed = !menu[meal].find(f => f._id === foodId).consumed
 	
 	await menu.save()
 	res.send(menu)
