@@ -10,7 +10,7 @@ const foodSchema = new Schema({
     prot:{ type: Number, required: true },
     sugars:{ type: Number, required: true },
     img:{ type: String },
-    consumed: {type: Boolean, required: true}
+    consumed: Boolean
 })
 
 const Food = mongoose.model('Food', foodSchema)
